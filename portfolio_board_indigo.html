@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio Board — NSE</title>
+<style>
+  :root{
+    --board: #090b14;
+    --panel: #141a2b;
+    --panel-lo: #0e1220;
+    --edge: #262f4a;
+    --ink: #eef1f8;
+    --ink-dim: #8189a8;
+    --violet: #8f7dff;
+    --violet-dim: #443a80;
+    --gain: #2dd4bf;
+    --loss: #ff6b81;
+    --mono: ui-monospace, 'SFMono-Regular', Menlo, Consolas, 'Roboto Mono', monospace;
+  }
+  *{ box-sizing:border-box; }
+  html,body{ margin:0; background:var(--board); }
+  body{
+    color:var(--ink);
+    font-family:var(--mono);
+    padding:36px 18px 70px;
+    background-image:
+      radial-gradient(900px 500px at 50% -12%, rgba(143,125,255,0.08), transparent 65%);
+  }
+  .wrap{ max-width:1220px; margin:0 auto; }
+
+  /* ---- header, styled like the big board header sign ---- */
+  .marquee{
+    background:var(--panel);
+    border:1px solid var(--edge);
+    border-radius:6px;
+    padding:20px 26px;
+    display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:14px;
+    margin-bottom:22px;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.03), 0 10px 30px rgba(0,0,0,0.4);
+  }
+  .marquee h1{
+    margin:0; font-size:22px; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--violet); text-shadow:0 0 14px rgba(143,125,255,0.35);
+  }
+  .marquee .sub{ font-size:11px; color:var(--ink-dim); letter-spacing:.08em; margin-top:6px; text-transform:uppercase; }
+  .marquee .clock{ font-size:12px; color:var(--ink-dim); text-align:right; letter-spacing:.06em; line-height:1.8; }
+  .marquee .clock b{ color:var(--ink); }
+  .dot{ display:inline-block; width:6px; height:6px; border-radius:50%; background:var(--gain); margin-right:6px; animation:blink 1.6s infinite; }
+  @keyframes blink{ 0%,100%{opacity:1;} 50%{opacity:.25;} }
+
+  /* ---- summary flaps ---- */
+  .summary{ display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-bottom:22px; }
+  .sflap{
+    background:linear-gradient(180deg, #181f34 0%, #0f1424 100%);
+    border:1px solid var(--edge); border-radius:5px; padding:12px 14px;
+    position:relative; overflow:hidden;
+  }
+  .sflap::after{
+    content:""; position:absolute; left:0; right:0; top:50%; height:1px;
+    background:rgba(0,0,0,0.55);
+  }
+  .sflap .k{ font-size:9.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-dim); }
+  .sflap .v{ font-size:19px; margin-top:6px; letter-spacing:.03em; font-weight:600; }
+  .v.gain{ color:var(--gain); } .v.loss{ color:var(--loss); }
+
+  .legend{
+    font-size:11px; color:var(--ink-dim); letter-spacing:.03em; margin-bottom:16px; line-height:1.7;
+    border-left:2px solid var(--violet-dim); padding-left:12px;
+  }
+  .legend b{ color:var(--violet); }
+
+  /* ---- column headings ---- */
+  .colhead{
+    display:grid;
+    grid-template-columns: 34px 78px 1fr 92px 84px 84px 84px 190px;
+    gap:8px; padding:0 4px 8px; margin-top:6px;
+    font-size:9.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-dim);
+  }
+  .colhead span:nth-child(n+4){ text-align:right; }
+  .colhead span:last-child{ text-align:left; }
+
+  /* ---- board rows ---- */
+  #board{ display:flex; flex-direction:column; gap:6px; min-width:900px; }
+  .boardscroll{ overflow-x:auto; padding-bottom:8px; }
+
+  .row{
+    display:grid;
+    grid-template-columns: 34px 78px 1fr 92px 84px 84px 84px 190px;
+    gap:8px; align-items:stretch;
+    animation: flipin .5s cubic-bezier(.2,.7,.2,1) both;
+  }
+  @media (prefers-reduced-motion: reduce){ .row{ animation:none; } }
+  @keyframes flipin{
+    from{ opacity:0; transform:translateY(-6px) scaleY(.92); filter:blur(1px); }
+    to{ opacity:1; transform:translateY(0) scaleY(1); filter:blur(0); }
+  }
+
+  .flap{
+    background:linear-gradient(180deg,#1c2338 0%, #141a2b 52%, #0f1424 100%);
+    border:1px solid var(--edge); border-radius:4px;
+    padding:9px 10px;
+    position:relative; display:flex; align-items:center;
+    min-height:40px;
+  }
+  .flap::after{
+    content:""; position:absolute; left:0; right:0; top:50%; height:1px;
+    background:rgba(0,0,0,0.6); box-shadow:0 1px 0 rgba(255,255,255,0.025);
+  }
+  .flap.num{ justify-content:flex-end; font-variant-numeric:tabular-nums; }
+
+  .rank{ color:var(--ink-dim); font-size:12px; justify-content:center; }
+  .sym{ font-weight:700; letter-spacing:.05em; color:var(--ink); font-size:13px; }
+  .company{
+    display:flex; flex-direction:column; justify-content:center; gap:2px;
+    padding-left:12px;
+  }
+  .company .name{ font-size:11px; color:var(--ink-dim); letter-spacing:.02em; text-transform:uppercase; }
+  .company .fig{ font-size:9.5px; color:var(--ink-dim); opacity:.65; }
+
+  .cmp{ font-size:13.5px; color:var(--ink); }
+  .pl{ font-size:13px; }
+  .pl.gain{ color:var(--gain); } .pl.loss{ color:var(--loss); }
+  .lo, .hi{ font-size:12px; color:var(--ink-dim); }
+
+  /* segmented signal meter — the signature element */
+  .meter{ display:flex; flex-direction:column; justify-content:center; gap:5px; padding-left:8px; }
+  .segs{ display:flex; gap:2px; }
+  .seg{ width:8px; height:14px; border-radius:1px; background:#232a42; }
+  .seg.on{ background:var(--violet); box-shadow:0 0 6px rgba(143,125,255,.45); }
+  .seg.on.gainzone{ background:var(--gain); box-shadow:0 0 6px rgba(79,214,140,.35); }
+  .meterlabel{ font-size:9.5px; color:var(--ink-dim); letter-spacing:.05em; }
+  .meterlabel b{ color:var(--violet); }
+
+  footer{
+    text-align:center; margin-top:22px; font-size:10.5px; color:var(--ink-dim);
+    letter-spacing:.08em; text-transform:uppercase;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="marquee">
+    <div>
+      <h1>NSE · Holdings Board</h1>
+      <div class="sub">Departures ranked by distance from 52‑week high</div>
+    </div>
+    <div class="clock">
+      <div><span class="dot"></span>Snapshot · <b>10 Aug 2026</b></div>
+      <div>22 counters on board</div>
+    </div>
+  </div>
+
+  <div class="summary" id="summary"></div>
+
+  <div class="legend">
+    <b>Reading the board —</b> the segmented meter on the right shows how close CMP sits to the 52‑week high (10 lit segments = at the high). Teal meter = position is also in profit vs. your avg. cost; violet = meter tracks range position regardless of P&amp;L color shown separately.
+  </div>
+
+  <div class="colhead">
+    <span>#</span><span>Symbol</span><span>Company</span>
+    <span>CMP ₹</span><span>P&amp;L</span><span>52W Low</span><span>52W High</span><span>Proximity to high</span>
+  </div>
+
+  <div class="boardscroll">
+    <div id="board"></div>
+  </div>
+
+  <footer>Point‑in‑time snapshot, not a live feed · ask to refresh anytime</footer>
+</div>
+
+<script>
+const data = [
+  {sym:"PAYTM",   name:"One 97 Communications (Paytm)",     cost:2150.00, cmp:1554.40, low:930.60,  high:1459.50},
+  {sym:"ADAENT",  name:"Adani Enterprises",                 cost:2926.06, cmp:3026.00, low:1753.00, high:3245.00},
+  {sym:"ADAPOR",  name:"Adani Ports & SEZ",                 cost:837.08,  cmp:1680.00, low:1290.50, high:1891.10},
+  {sym:"KWAWAL",  name:"Kwality Wall's India",               cost:44.84,   cmp:34.86,   low:22.24,   high:39.45},
+  {sym:"YESBAN",  name:"Yes Bank",                           cost:15.00,   cmp:22.65,   low:17.20,   high:25.78},
+  {sym:"CIPLA",   name:"Cipla",                              cost:953.79,  cmp:1461.00, low:1165.70, high:1673.00},
+  {sym:"ZOMLIM",  name:"Eternal (Zomato)",                   cost:76.00,   cmp:315.00,  low:212.60,  high:368.45},
+  {sym:"RELIND",  name:"Reliance Industries",                cost:1236.21, cmp:1334.80, low:1249.80, high:1611.80},
+  {sym:"ADAPOW",  name:"Adani Power",                        cost:30.10,   cmp:209.57,  low:110.45,  high:254.20},
+  {sym:"AVESUP",  name:"Avenue Supermarts (DMart)",          cost:4753.01, cmp:4054.00, low:3529.00, high:4949.50},
+  {sym:"ADAGAS",  name:"Adani Total Gas",                    cost:968.26,  cmp:658.15,  low:462.80,  high:859.85},
+  {sym:"HINLEV",  name:"Hindustan Unilever",                 cost:2347.93, cmp:2096.00, low:2016.00, high:2750.00},
+  {sym:"JIOFIN",  name:"Jio Financial Services",             cost:115.71,  cmp:257.20,  low:223.30,  high:338.60},
+  {sym:"NUVVIS",  name:"Nuvoco Vistas Corporation",          cost:570.00,  cmp:356.05,  low:276.25,  high:477.50},
+  {sym:"TCS",     name:"Tata Consultancy Services",          cost:3474.78, cmp:2452.70, low:1976.80, high:3350.00},
+  {sym:"INDRAI",  name:"Indian Rail Cat. & Tour. (IRCTC)",   cost:518.37,  cmp:524.80,  low:485.30,  high:739.00},
+  {sym:"NATFER",  name:"National Fertilizers",               cost:48.43,   cmp:72.20,   low:63.35,   high:102.97},
+  {sym:"INFTEC",  name:"Infosys",                             cost:1565.26, cmp:1187.00, low:982.40,  high:1728.00},
+  {sym:"SBICAR",  name:"SBI Cards & Payment Services",       cost:975.79,  cmp:654.35,  low:565.45,  high:965.00},
+  {sym:"ITC",     name:"ITC",                                 cost:366.87,  cmp:283.20,  low:275.00,  high:427.00},
+  {sym:"NIPSIL",  name:"Nippon India Silver ETF",            cost:278.77,  cmp:220.47,  low:106.64,  high:360.00},
+  {sym:"BATIND",  name:"Bata India",                         cost:1926.45, cmp:698.35,  low:605.00,  high:1282.50},
+];
+
+data.forEach(d=>{
+  d.ratio = d.cmp / d.high;
+  d.plPct = ((d.cmp - d.cost) / d.cost) * 100;
+});
+data.sort((a,b)=> b.ratio - a.ratio);
+
+const fmt = n => n.toLocaleString('en-IN', {minimumFractionDigits:2, maximumFractionDigits:2});
+const fmtSigned = n => (n>=0?'+':'') + n.toFixed(1) + '%';
+
+const board = document.getElementById('board');
+data.forEach((d,i)=>{
+  const plClass = d.plPct >= 0 ? 'gain' : 'loss';
+  const litSegs = Math.max(1, Math.min(10, Math.round(d.ratio * 10)));
+  let segsHtml = '';
+  for(let s=1; s<=10; s++){
+    segsHtml += `<div class="seg ${s<=litSegs ? 'on' : ''}"></div>`;
+  }
+  const row = document.createElement('div');
+  row.className = 'row';
+  row.style.animationDelay = (i*35)+'ms';
+  row.innerHTML = `
+    <div class="flap rank">${i+1}</div>
+    <div class="flap sym">${d.sym}</div>
+    <div class="flap company"><span class="name">${d.name}</span><span class="fig">avg cost ₹${fmt(d.cost)}</span></div>
+    <div class="flap num cmp">${fmt(d.cmp)}</div>
+    <div class="flap num pl ${plClass}">${fmtSigned(d.plPct)}</div>
+    <div class="flap num lo">${fmt(d.low)}</div>
+    <div class="flap num hi">${fmt(d.high)}</div>
+    <div class="flap meter">
+      <div class="segs">${segsHtml}</div>
+      <div class="meterlabel"><b>${(d.ratio*100).toFixed(1)}%</b> of 52W high</div>
+    </div>
+  `;
+  board.appendChild(row);
+});
+
+const totalCost = data.reduce((s,d)=>s+d.cost,0);
+const totalCmp = data.reduce((s,d)=>s+d.cmp,0);
+const overallPl = ((totalCmp-totalCost)/totalCost)*100;
+const winners = data.filter(d=>d.plPct>=0).length;
+document.getElementById('summary').innerHTML = `
+  <div class="sflap"><div class="k">In profit</div><div class="v gain">${winners} / ${data.length}</div></div>
+  <div class="sflap"><div class="k">Blended P&amp;L (equal-weight)</div><div class="v ${overallPl>=0?'gain':'loss'}">${fmtSigned(overallPl)}</div></div>
+  <div class="sflap"><div class="k">Leading the board</div><div class="v">${data[0].sym}</div></div>
+  <div class="sflap"><div class="k">Trailing the board</div><div class="v">${data[data.length-1].sym}</div></div>
+`;
+</script>
+</body>
+</html>
