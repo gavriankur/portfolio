@@ -29,12 +29,16 @@ def parse_quote(payload, display, ticker):
     price = meta.get('regularMarketPrice')
     # With range=1d, chartPreviousClose is the previous trading session close.
     previous = meta.get('previousClose', meta.get('chartPreviousClose'))
+    low, high = meta.get('fiftyTwoWeekLow'), meta.get('fiftyTwoWeekHigh')
+    if not positive(low) or not positive(high) or low > high:
+        raise ValueError('Missing or invalid 52-week range')
     stamp = meta.get('regularMarketTime')
     if not all(positive(v) for v in (price, previous, stamp)):
         raise ValueError('Missing or invalid price, previous close or timestamp')
     if stamp > time.time() + 300:
         raise ValueError('Quote timestamp is in the future')
     return {'symbol': display, 'ticker': ticker, 'price': price, 'previousClose': previous,
+            'low52': low, 'high52': high,
             'asOf': datetime.fromtimestamp(stamp, timezone.utc).isoformat(),
             'sourceUrl': 'https://finance.yahoo.com/quote/' + ticker + '/'}
 
