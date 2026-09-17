@@ -49,3 +49,7 @@ Display label -> Yahoo Finance ticker:
 The original three shorthand labels are retained for visual continuity.
 The package has been tested locally with all six real responses. It has not
 been uploaded to your repository or run inside your GitHub account yet.
+
+Range display update: replace index.html, quotes.json and scripts/collect_quotes.py.
+The existing workflow remains unchanged. The range marker uses
+(price - 52-week low) / (52-week high - 52-week low), not price / high.

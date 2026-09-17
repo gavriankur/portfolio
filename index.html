@@ -1,230 +1,137 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="color-scheme" content="light">
-  <title>NSE Stock Tracker</title>
-  <style>
-    * { box-sizing: border-box; }
-    body { margin: 0; padding: 48px 20px; background: #fff; color: #151515; font-family: Arial, Helvetica, sans-serif; }
-    main { width: 100%; max-width: 680px; margin: 0 auto; }
-    .stock-list { border: 1px solid #d5d5d5; }
-    header { min-height: 88px; padding: 22px 24px; background: #eee; border-bottom: 1px solid #d5d5d5; }
-    h1 { margin: 0; font-size: 25px; line-height: 1.35; font-weight: 700; }
-    ul { list-style: none; margin: 0; padding: 0 24px; }
-    .stock-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 88px; padding: 18px 0; border-bottom: 1px solid #bcbcbc; }
-    .stock-row:last-child { border-bottom: 0; }
-    .identity { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; }
-    .symbol { margin: 0; color: #084579; font-size: 25px; line-height: 1.25; font-weight: 400; }
-    .badge { display: inline-block; padding: 4px 7px; border: 2px solid #858c95; border-radius: 8px; color: #7d858f; font-size: 18px; line-height: 1.2; font-weight: 500; }
-    .quote { flex-shrink: 0; text-align: right; font-variant-numeric: tabular-nums; }
-    .price { font-size: 19px; line-height: 1.4; }
-    .change { margin-top: 3px; color: #646b73; font-size: 13px; line-height: 1.4; }
-    .positive { color: #187347; }
-    .negative { color: #b43b3b; }
-    .note { margin: 16px 0 0; color: #707781; font-size: 12px; line-height: 1.7; }
-    .note strong { color: #505862; font-weight: 600; }
-    noscript p { color: #505862; font-size: 13px; }
-    @media (max-width: 480px) {
-      body { padding: 24px 14px; }
-      header { padding: 20px; }
-      ul { padding: 0 20px; }
-      .stock-row { gap: 12px; }
-      .symbol { font-size: 22px; }
-      .badge { font-size: 14px; padding: 4px 6px; border-radius: 7px; }
-      .price { font-size: 17px; }
-      .change { font-size: 12px; }
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stocks · 52-week range</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#fafaf8;color:#202c32;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-variant-numeric:tabular-nums}main{max-width:820px;margin:64px auto;padding:0 26px}header{margin-bottom:34px}h1{font-size:30px;letter-spacing:-1px;font-weight:600;margin:0 0 8px}header p{color:#737b7e;font-size:14px;margin:0}.list{background:#fff;border:1px solid #e3e6e3;border-radius:12px;padding:0 28px}.stock{padding:26px 0;border-bottom:1px solid #e8eae7}.stock:last-child{border:0}.top{display:grid;grid-template-columns:minmax(0,1fr) 150px 130px;gap:20px;align-items:start}.column-label{display:block;font-size:10px;color:#89918e;font-weight:400;letter-spacing:0;margin-bottom:7px}.sold{text-align:right;font-size:18px;font-weight:500;white-space:nowrap}.sold.pending{font-size:13px;color:#737b7e}.name{font-size:16px;font-weight:600;margin:0}.symbol{font-size:11px;letter-spacing:.07em;color:#89918e;margin-top:5px}.price{text-align:right;font-size:21px;font-weight:600;letter-spacing:-.5px}.price small{display:block;font-size:10px;color:#89918e;font-weight:400;letter-spacing:0;margin-top:5px}.range{margin-top:24px}.track{height:4px;background:#e9edeb;border-radius:4px;position:relative;margin:0 6px}.fill{height:100%;width:var(--position);background:#a9c5b8;border-radius:4px}.marker{position:absolute;left:var(--position);top:50%;transform:translate(-50%,-50%);width:12px;height:12px;border-radius:50%;background:#2b6551;border:2px solid white;box-shadow:0 0 0 1px #2b6551}.limits{display:flex;justify-content:space-between;margin-top:12px;font-size:13px}.limits span:last-child{text-align:right}.limits small{display:block;font-size:10px;color:#8a918e;margin-top:3px}.unavailable{color:#8a918e;font-size:12px}.outside{font-size:11px;color:#8a918e;margin-top:10px}footer{font-size:11px;line-height:1.8;color:#858d88;margin:18px 2px}a{color:inherit}@media(max-width:600px){.top{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px 12px}.identity{grid-column:1/-1}.price{text-align:left}.sold{font-size:17px}}@media(max-width:480px){main{margin:30px auto;padding:0 16px}.list{padding:0 20px}h1{font-size:27px}.price{font-size:19px}.name{font-size:15px}.stock{padding:24px 0}}
+</style>
 </head>
 <body>
-  <main>
-    <section class="stock-list" aria-labelledby="stock-heading">
-      <header><h1 id="stock-heading">Stock</h1></header>
-      <ul aria-label="NSE stock watchlist">
-        <li class="stock-row" data-symbol="ZOMIIM">
-          <div class="identity"><h2 class="symbol">ZOMIIM</h2><span class="badge">DELIVERY</span></div>
-          <div class="quote"><div class="price">—</div><div class="change">Unavailable</div></div>
-        </li>
-        <li class="stock-row" data-symbol="ADAPOR">
-          <div class="identity"><h2 class="symbol">ADAPOR</h2><span class="badge">DELIVERY</span></div>
-          <div class="quote"><div class="price">—</div><div class="change">Unavailable</div></div>
-        </li>
-        <li class="stock-row" data-symbol="ADAPOW">
-          <div class="identity"><h2 class="symbol">ADAPOW</h2><span class="badge">DELIVERY</span></div>
-          <div class="quote"><div class="price">—</div><div class="change">Unavailable</div></div>
-        </li>
-        <li class="stock-row" data-symbol="YESBANK">
-          <div class="identity"><h2 class="symbol">YESBANK</h2><span class="badge">DELIVERY</span></div>
-          <div class="quote"><div class="price">—</div><div class="change">Unavailable</div></div>
-        </li>
-        <li class="stock-row" data-symbol="JIOFIN">
-          <div class="identity"><h2 class="symbol">JIOFIN</h2><span class="badge">DELIVERY</span></div>
-          <div class="quote"><div class="price">—</div><div class="change">Unavailable</div></div>
-        </li>
-        <li class="stock-row" data-symbol="CIPLA">
-          <div class="identity"><h2 class="symbol">CIPLA</h2><span class="badge">DELIVERY</span></div>
-          <div class="quote"><div class="price">—</div><div class="change">Unavailable</div></div>
-        </li>
-      </ul>
-    </section>
-    <p class="note" id="quote-status" role="status">Loading collected market quotes…</p>
-    <noscript><p>Enable JavaScript to load market quotes. The watchlist remains available above.</p></noscript>
-  </main>
-  <script id="initial-quotes" type="application/json">{
+<main>
+<header><h1>Stocks</h1><p>Where today’s price sits in the 52-week range.</p></header>
+<div class="list" id="stocks" aria-label="Stock prices and 52-week ranges"></div>
+<footer id="status" role="status">Loading collected quotes…</footer>
+<noscript>Enable JavaScript to display stock prices.</noscript>
+</main>
+<script id="initial-quotes" type="application/json">{
   "source": "Yahoo Finance · NSE",
-  "collectedAt": "2026-09-17T07:14:26.240994+00:00",
+  "collectedAt": "2026-09-17T07:29:10.569100+00:00",
   "quotes": [
     {
       "symbol": "ZOMIIM",
       "ticker": "ETERNAL.NS",
-      "price": 325.05,
+      "price": 325.15,
       "previousClose": 317.0,
-      "asOf": "2026-09-17T07:14:13+00:00",
+      "low52": 212.6,
+      "high52": 368.45,
+      "asOf": "2026-09-17T07:28:57+00:00",
       "sourceUrl": "https://finance.yahoo.com/quote/ETERNAL.NS/"
     },
     {
       "symbol": "ADAPOR",
       "ticker": "ADANIPORTS.NS",
-      "price": 1736.2,
+      "price": 1736.7,
       "previousClose": 1723.8,
-      "asOf": "2026-09-17T07:14:16+00:00",
+      "low52": 1292.0,
+      "high52": 1891.1,
+      "asOf": "2026-09-17T07:29:00+00:00",
       "sourceUrl": "https://finance.yahoo.com/quote/ADANIPORTS.NS/"
     },
     {
       "symbol": "ADAPOW",
       "ticker": "ADANIPOWER.NS",
-      "price": 205.31,
+      "price": 204.98,
       "previousClose": 202.34,
-      "asOf": "2026-09-17T07:14:20+00:00",
+      "low52": 125.2,
+      "high52": 254.2,
+      "asOf": "2026-09-17T07:29:02+00:00",
       "sourceUrl": "https://finance.yahoo.com/quote/ADANIPOWER.NS/"
     },
     {
       "symbol": "YESBANK",
       "ticker": "YESBANK.NS",
-      "price": 23.05,
+      "price": 23.0,
       "previousClose": 23.4,
-      "asOf": "2026-09-17T07:14:16+00:00",
+      "low52": 17.2,
+      "high52": 25.78,
+      "asOf": "2026-09-17T07:29:05+00:00",
       "sourceUrl": "https://finance.yahoo.com/quote/YESBANK.NS/"
     },
     {
       "symbol": "JIOFIN",
       "ticker": "JIOFIN.NS",
-      "price": 229.86,
+      "price": 229.71,
       "previousClose": 224.84,
-      "asOf": "2026-09-17T07:14:18+00:00",
+      "low52": 223.3,
+      "high52": 321.6,
+      "asOf": "2026-09-17T07:29:06+00:00",
       "sourceUrl": "https://finance.yahoo.com/quote/JIOFIN.NS/"
     },
     {
       "symbol": "CIPLA",
       "ticker": "CIPLA.NS",
-      "price": 1378.9,
+      "price": 1378.8,
       "previousClose": 1358.0,
-      "asOf": "2026-09-17T07:14:22+00:00",
+      "low52": 1165.7,
+      "high52": 1673.0,
+      "asOf": "2026-09-17T07:29:05+00:00",
       "sourceUrl": "https://finance.yahoo.com/quote/CIPLA.NS/"
     }
   ]
 }</script>
-  <script>
-    'use strict';
-
-    // Public quotes are collected by scripts/collect_quotes.py in GitHub Actions.
-    // The embedded snapshot also works when this file is opened directly.
-    const QUOTE_ENDPOINT = './quotes.json';
-    const SYMBOLS = ['ZOMIIM', 'ADAPOR', 'ADAPOW', 'YESBANK', 'JIOFIN', 'CIPLA'];
-
-    const rupees = new Intl.NumberFormat('en-IN', {
-      style: 'currency', currency: 'INR', minimumFractionDigits: 2, maximumFractionDigits: 2
-    });
-
-    /**
-     * Update any subset of the watchlist; omitted symbols retain their quotes.
-     * quotes: [{ symbol: string, price: number, previousClose: number, asOf: ISO timestamp }]
-     * Invalid prices clear the affected quote; unknown symbols are ignored.
-     * Example integration after fetching and mapping your provider's response:
-     *   updateQuotes(mappedQuotes, { label: 'Provider name · delayed 15 min' });
-     * Use a server/proxy if your provider requires credentials or blocks CORS.
-     * This page fetches only the public quotes.json file beside it.
-     */
-    function updateQuotes(quotes, { label = 'Market quotes · See each quote timestamp for freshness.' } = {}) {
-      if (!Array.isArray(quotes)) throw new TypeError('quotes must be an array');
-      for (const quote of quotes) {
-        if (!quote || typeof quote.symbol !== 'string') continue;
-        const row = Array.from(document.querySelectorAll('[data-symbol]'))
-          .find(element => element.dataset.symbol === quote.symbol);
-        if (!row) continue;
-        const priceElement = row.querySelector('.price');
-        const changeElement = row.querySelector('.change');
-        row.querySelector('time')?.remove();
-        changeElement.className = 'change';
-        if (!Number.isFinite(quote.price) || quote.price < 0) {
-          priceElement.textContent = '—';
-          changeElement.textContent = 'Quote unavailable';
-          continue;
-        }
-        if (!quote.asOf || !Number.isFinite(Date.parse(quote.asOf))) {
-          priceElement.textContent = '—';
-          changeElement.textContent = 'Timestamp unavailable';
-          continue;
-        }
-        priceElement.textContent = rupees.format(quote.price);
-        let timeElement = row.querySelector('time');
-        if (!timeElement) {
-          timeElement = document.createElement('time');
-          timeElement.style.cssText = 'display:block;font-size:11px;color:#707781;margin-top:4px';
-          row.querySelector('.quote').append(timeElement);
-        }
-        timeElement.dateTime = quote.asOf;
-        timeElement.textContent = new Date(quote.asOf).toLocaleString('en-IN', {
-          timeZone: 'Asia/Kolkata', day: '2-digit', month: 'short',
-          hour: '2-digit', minute: '2-digit'
-        }) + ' IST';
-        if (!Number.isFinite(quote.previousClose) || quote.previousClose <= 0) {
-          changeElement.textContent = 'Change unavailable';
-          continue;
-        }
-        const change = quote.price - quote.previousClose;
-        const percent = change / quote.previousClose * 100;
-        const sign = change > 0 ? '+' : change < 0 ? '−' : '';
-        changeElement.textContent = `${sign}${Math.abs(change).toFixed(2)} (${sign}${Math.abs(percent).toFixed(2)}%)`;
-        if (change !== 0) changeElement.classList.add(change > 0 ? 'positive' : 'negative');
-      }
-      document.getElementById('quote-status').textContent = label;
-    }
-
-    window.updateQuotes = updateQuotes;
-    async function refreshQuotes() {
-      if (location.protocol === 'file:') return;
-      const status = document.getElementById('quote-status');
-      try {
-        const url = new URL(QUOTE_ENDPOINT, location.href);
-        url.searchParams.set('symbols', SYMBOLS.join(','));
-        const response = await fetch(url, { cache: 'no-store', signal: AbortSignal.timeout(15000) });
-        if (!response.ok) throw new Error('Quote request failed');
-        const data = await response.json();
-        if (!Array.isArray(data.quotes) || !data.quotes.length || typeof data.source !== 'string' || !Number.isFinite(Date.parse(data.collectedAt))) {
-          throw new Error('Invalid quote response');
-        }
-        // Clear omitted symbols so an old price is never silently retained.
-        updateQuotes(SYMBOLS.map(symbol => data.quotes.find(q => q && q.symbol === symbol) || { symbol }), {
-          label: quoteLabel(data)
-        });
-      } catch (error) {
-        status.textContent = 'Refresh failed — showing the last collected quotes, which may be out of date. Check the quote times below each price.';
-      } finally {
-        setTimeout(refreshQuotes, 60000);
-      }
-    }
-    function quoteLabel(data) {
-      const age = Date.now() - Date.parse(data.collectedAt);
-      const collected = new Date(data.collectedAt).toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
-      return `${data.source} · Collected ${collected} IST · ${age > 45 * 60000 ? 'Collection is over 45 minutes old. ' : ''}Prices may be delayed; quote times shown per stock. ` +
-        (location.protocol === 'file:' ? 'Downloaded snapshot; open the published site for updates.' : 'Scheduled collection every 20 minutes on weekdays during market hours.');
-    }
-    const initial = JSON.parse(document.getElementById('initial-quotes').textContent);
-    if (initial?.quotes?.length) updateQuotes(initial.quotes, { label: quoteLabel(initial) });
-    refreshQuotes();
-  </script>
+<script>
+'use strict';
+const stocks=[['ZOMIIM','Eternal (Zomato)','ETERNAL'],['ADAPOR','Adani Ports','ADANIPORTS'],['ADAPOW','Adani Power','ADANIPOWER'],['YESBANK','Yes Bank','YESBANK'],['JIOFIN','Jio Financial Services','JIOFIN'],['CIPLA','Cipla','CIPLA']];
+// User-provided sale history, independent of the scraped market quotes.
+const lastSold={ZOMIIM:324.45,ADAPOR:1735.50,ADAPOW:204.23,YESBANK:null,JIOFIN:null,CIPLA:null};
+const money=new Intl.NumberFormat('en-IN',{style:'currency',currency:'INR',minimumFractionDigits:2,maximumFractionDigits:2});
+const finite=n=>typeof n==='number'&&Number.isFinite(n)&&n>0;
+const date=s=>new Date(s).toLocaleString('en-IN',{timeZone:'Asia/Kolkata',day:'2-digit',month:'short',hour:'2-digit',minute:'2-digit'})+' IST';
+function rangePosition(price,low,high){return high===low?50:Math.max(0,Math.min(100,(price-low)/(high-low)*100));}
+function element(tag,className,text){const el=document.createElement(tag);el.className=className;if(text!==undefined)el.textContent=text;return el;}
+let lastData=null;
+function render(data){
+ if(!data||!Array.isArray(data.quotes)||!Number.isFinite(Date.parse(data.collectedAt)))throw new Error('Invalid snapshot');
+ const list=document.getElementById('stocks');list.replaceChildren();
+ for(const [label,name,symbol] of stocks){
+  const q=data.quotes.find(q=>q.symbol===label), row=element('section','stock');
+  const top=element('div','top'),identity=element('div','identity');
+  identity.append(element('h2','name',name),element('div','symbol','NSE · '+symbol));
+  const valid=q&&finite(q.price)&&Number.isFinite(Date.parse(q.asOf));
+  const price=element('div','price',valid?money.format(q.price):'—');
+  price.prepend(element('span','column-label','Current price'));
+  price.append(element('small','',valid?date(q.asOf):'Quote unavailable'));
+  const sold=element('div',lastSold[label]===null?'sold pending':'sold',lastSold[label]===null?'Yet to sell':money.format(lastSold[label]));
+  sold.prepend(element('span','column-label','Last sold at'));
+  top.append(identity,price,sold);row.append(top);
+  if(valid&&finite(q.low52)&&finite(q.high52)&&q.high52>=q.low52){
+   const range=element('div','range'),track=element('div','track');
+   const position=rangePosition(q.price,q.low52,q.high52);
+   track.style.setProperty('--position',position+'%');track.setAttribute('role','img');
+   track.setAttribute('aria-label',`${name}: current price ${money.format(q.price)}; 52-week low ${money.format(q.low52)}, high ${money.format(q.high52)}.`);
+   track.append(element('div','fill'),element('div','marker'));
+   const limits=element('div','limits');
+   for(const [value,caption] of [[q.low52,'52-week low'],[q.high52,'52-week high']]){const span=element('span','',money.format(value));span.append(element('small','',caption));limits.append(span);}
+   range.append(track,limits);
+   if(q.price<q.low52||q.price>q.high52)range.append(element('div','outside','Latest price is outside the reported range; marker shown at the nearest end.'));
+   row.append(range);
+  }else row.append(element('p','unavailable','52-week range unavailable'));
+  list.append(row);
+ }
+ lastData=data;setStatus();
+}
+function setStatus(){if(!lastData)return;const old=Date.now()-Date.parse(lastData.collectedAt)>45*60000;document.getElementById('status').textContent='Yahoo Finance · Collected '+date(lastData.collectedAt)+'. '+(old?'Collection is over 45 minutes old. ':'')+'Quotes may be delayed. '+(location.protocol==='file:'?'Downloaded snapshot.':'Updates scheduled every 20 minutes during weekday market hours.');}
+async function refresh(){
+ if(location.protocol==='file:')return;
+ try{const res=await fetch('./quotes.json',{cache:'no-store',signal:AbortSignal.timeout(15000)});if(!res.ok)throw new Error('Fetch failed');render(await res.json());}
+ catch{document.getElementById('status').textContent='Refresh unavailable. '+(lastData?'Showing last collected quotes from '+date(lastData.collectedAt)+'. Check the price timestamps.':'No quotes available.');}
+ finally{setTimeout(refresh,60000);}
+}
+try{render(JSON.parse(document.getElementById('initial-quotes').textContent));}catch{document.getElementById('status').textContent='No collected quotes available yet.';}
+refresh();
+if(location.protocol==='file:')setInterval(setStatus,60000);
+</script>
 </body>
 </html>
