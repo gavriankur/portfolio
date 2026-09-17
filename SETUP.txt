@@ -1,0 +1,51 @@
+NSE stock tracker — scraping-based updates
+
+Included:
+  index.html                     Responsive six-stock page with actual collected quotes
+  quotes.json                    Last successful snapshot and exchange quote timestamps
+  scripts/collect_quotes.py      Public Yahoo Finance data collector (Python standard library)
+  .github/workflows/refresh.yml  Collection and GitHub Pages publishing workflow
+
+Publish:
+1. Extract this ZIP into your GitHub repository root, preserving .github/workflows/.
+   This replaces index.html. The six-stock page replaces the old 22-stock board
+   if you choose to use your existing portfolio repository.
+2. Commit and push these files to main. No API keys or account secrets are needed.
+3. In repository Settings > Pages, set Source to GitHub Actions.
+4. Under Actions, select "Refresh stock quotes and publish", then Run workflow.
+   If write permission is restricted, allow workflow write access in Settings >
+   Actions > General. Branch protection may also need to allow the snapshot commit.
+5. The successful deployment provides the website URL. Future weekday runs are
+   scheduled every 20 minutes from 09:37 through 16:17 IST. GitHub may delay runs.
+
+Local use:
+  Open index.html directly to see its embedded real-data snapshot.
+  To refresh the snapshot, run: python3 scripts/collect_quotes.py
+  To serve the page locally with JSON refresh: python3 -m http.server 8000
+  Then open http://localhost:8000. The browser checks quotes.json every minute;
+  this does not itself scrape new prices. Run the collector or use the workflow.
+
+Data:
+  The collector reads Yahoo Finance's public structured quote response, rather
+  than parsing visual HTML. This is an unofficial, unauthenticated endpoint;
+  no paid API or broker account is used. Availability is not guaranteed.
+  Prices may be delayed. Each quote shows its provider timestamp in IST.
+  Closed markets retain the last traded price and its original timestamp.
+  Collection age and trade timestamp are deliberately separate.
+  Requests are spaced out; errors, rate limits or changed response schemas fail
+  the run without replacing the last complete snapshot. GitHub reports the failure.
+  If a collection is more than 45 minutes old, the page marks it as old.
+  Scheduled Actions in public repos can be disabled after 60 days of inactivity.
+  No trading or order placement functionality is included.
+
+Display label -> Yahoo Finance ticker:
+  ZOMIIM  -> ETERNAL.NS (Eternal, formerly Zomato)
+  ADAPOR  -> ADANIPORTS.NS
+  ADAPOW  -> ADANIPOWER.NS
+  YESBANK -> YESBANK.NS
+  JIOFIN  -> JIOFIN.NS
+  CIPLA   -> CIPLA.NS
+
+The original three shorthand labels are retained for visual continuity.
+The package has been tested locally with all six real responses. It has not
+been uploaded to your repository or run inside your GitHub account yet.
