@@ -43,19 +43,25 @@ def parse_quote(payload, display, ticker):
             'sourceUrl': 'https://finance.yahoo.com/quote/' + ticker + '/'}
 
 
+def fetch_quote(item):
+    display, ticker = item
+    url = f'https://query2.finance.yahoo.com/v8/finance/chart/{ticker}?interval=1d&range=1d&_={time.time_ns()}'
+    request = Request(url, headers={'User-Agent': 'Mozilla/5.0', 'Accept': 'application/json', 'Cache-Control': 'no-cache'})
+    with urlopen(request, timeout=10) as response:
+        return parse_quote(json.load(response), display, ticker)
+
+
+def collect_live():
+    from concurrent.futures import ThreadPoolExecutor
+    with ThreadPoolExecutor(max_workers=6) as pool:
+        quotes = list(pool.map(fetch_quote, SYMBOLS.items()))
+    return {'source': 'Yahoo Finance · NSE', 'mode': 'on-demand',
+            'collectedAt': datetime.now(timezone.utc).isoformat(), 'quotes': quotes}
+
+
 def main():
-    quotes = []
-    for display, ticker in SYMBOLS.items():
-        url = f'https://query2.finance.yahoo.com/v8/finance/chart/{ticker}?interval=1d&range=1d'
-        request = Request(url, headers={'User-Agent': 'Mozilla/5.0', 'Accept': 'application/json'})
-        # Fail visibly on rate limits or schema changes. Do not overwrite the last
-        # successful snapshot with partial results, zeros or invented values.
-        with urlopen(request, timeout=25) as response:
-            quotes.append(parse_quote(json.load(response), display, ticker))
-        print(f'Collected {display} ({ticker})')
-        time.sleep(1)
-    data = {'source': 'Yahoo Finance · NSE', 'collectedAt': datetime.now(timezone.utc).isoformat(),
-            'quotes': quotes}
+    data = collect_live()
+    data['mode'] = 'snapshot'
     serialized = json.dumps(data, indent=2, ensure_ascii=False)
     page = ROOT / 'index.html'
     html = page.read_text()
