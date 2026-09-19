@@ -70,7 +70,7 @@
 <script id="initial-quotes" type="application/json">{
   "source": "Yahoo Finance · NSE",
   "mode": "snapshot",
-  "collectedAt": "2026-09-18T13:33:51.682740+00:00",
+  "collectedAt": "2026-09-18T12:39:55.943570+00:00",
   "quotes": [
     {
       "symbol": "ZOMIIM",
@@ -144,9 +144,9 @@ const finite=n=>typeof n==='number'&&Number.isFinite(n)&&n>0;
 const date=s=>new Date(s).toLocaleString('en-IN',{timeZone:'Asia/Kolkata',day:'2-digit',month:'short',hour:'2-digit',minute:'2-digit',second:'2-digit'})+' IST';
 function rangePosition(price,low,high){return high===low?50:Math.max(0,Math.min(100,(price-low)/(high-low)*100));}
 function element(tag,className,text){const el=document.createElement(tag);el.className=className;if(text!==undefined)el.textContent=text;return el;}
-// Host api/quotes.py alongside this page, or set this to its HTTPS URL.
-const QUOTE_API='/api/quotes';
-const REFRESH_MS=120000, MAX_RESPONSE_AGE_MS=180000, MAX_QUOTE_AGE_MS=30*60000;
+// GitHub Pages: read the snapshot produced by GitHub Actions.
+const QUOTE_API='./quotes.json';
+const REFRESH_MS=120000, MAX_RESPONSE_AGE_MS=180000, MAX_QUOTE_AGE_MS=45*60000;
 let lastData=null, lastSuccessfulResponse=null, refreshFailed=true, busy=false, timer=null;
 function staleQuote(q,now=Date.now()){
  const stamp=Date.parse(q.asOf);
@@ -156,7 +156,7 @@ function staleQuote(q,now=Date.now()){
 function validate(data,api=false){
  const now=Date.now(),stamp=Date.parse(data?.collectedAt);
  if(!Number.isFinite(stamp)||stamp>now+300000||!Array.isArray(data?.quotes)||data.quotes.length!==stocks.length)throw Error('Invalid quote response');
- if(api&&(data.mode!=='on-demand'||now-stamp>MAX_RESPONSE_AGE_MS))throw Error('Server returned an old snapshot');
+ // Old snapshots may be displayed, but setStatus must mark them STALE.
  for(const [label,,ticker] of stocks){const matches=data.quotes.filter(q=>q&&q.symbol===label);const q=matches[0];
   if(matches.length!==1||q.ticker!==ticker+'.NS'||!finite(q.price)||!finite(q.low52)||!finite(q.high52)||q.low52>q.high52||!Number.isFinite(Date.parse(q.asOf))||Date.parse(q.asOf)>now+300000)throw Error('Incomplete or invalid stock data');
  }
@@ -207,13 +207,14 @@ function render(data){
 function setStatus(){
  const responseOld=!lastSuccessfulResponse||Date.now()-lastSuccessfulResponse>MAX_RESPONSE_AGE_MS;
  const quoteOld=!lastData||lastData.quotes.some(q=>staleQuote(q));
- const stale=refreshFailed||responseOld||quoteOld;
+ const collectionOld=!lastData||Date.now()-Date.parse(lastData.collectedAt)>45*60000;
+ const stale=refreshFailed||responseOld||quoteOld||collectionOld;
  const badge=document.getElementById('freshness');badge.className='freshness '+(stale?'stale':'ok');
- badge.textContent=stale?'STALE · '+(refreshFailed?'Fresh quotes could not be confirmed.':responseOld?'The last successful response is overdue.':'One or more market quotes are over 30 minutes old; the market may be closed.'):'Updated · Provider quotes may be delayed.';
- document.getElementById('status').textContent='Last successful API response: '+(lastSuccessfulResponse?date(lastSuccessfulResponse):'None this session')+'. '+(lastData?'Quote collection: '+date(lastData.collectedAt)+'. ':'')+'Refreshes every 2 minutes. Quote times shown per stock.';
+ badge.textContent=stale?'STALE · '+(refreshFailed?'Could not load the latest saved snapshot.':responseOld?'The last successful response is overdue.':'The collection or market quotes are over 45 minutes old; the market may be closed.'):'Latest saved snapshot · Provider quotes may be delayed.';
+ document.getElementById('status').textContent='Last successful snapshot check: '+(lastSuccessfulResponse?date(lastSuccessfulResponse):'None this session')+'. '+(lastData?'Quote collection: '+date(lastData.collectedAt)+'. ':'')+'Page checks every 2 minutes. GitHub collects every 20 minutes on weekdays, 9:37 AM–4:17 PM IST. Refresh Now reloads saved data; it does not run the scraper.';
  document.querySelectorAll('.stock').forEach(row=>{
   const q=lastData?.quotes.find(q=>q.symbol===row.dataset.symbol);
-  const old=refreshFailed||responseOld||!q||staleQuote(q);
+  const old=refreshFailed||responseOld||collectionOld||!q||staleQuote(q);
   row.classList.toggle('stale-row',old);row.querySelector('.quote-warning')?.remove();
   row.querySelector('.column-label').textContent=old?'Last known price':'Current price';
   if(old)row.querySelector('.price').append(element('span','quote-warning','STALE'));
@@ -224,12 +225,12 @@ async function refresh(){
  busy=true;clearTimeout(timer);
  const button=document.getElementById('refresh-now');button.disabled=true;button.textContent='Refreshing…';
  try{
-  if(location.protocol==='file:')throw Error('Open the hosted page to use the quote API');
+  if(location.protocol==='file:')throw Error('Open the GitHub Pages website to check for updates');
   const url=new URL(QUOTE_API,location.href);url.searchParams.set('_',Date.now());
   const res=await fetch(url,{cache:'no-store',signal:AbortSignal.timeout(30000)});
   if(!res.ok)throw Error('Quote service unavailable ('+res.status+')');
-  const data=await res.json();validate(data,true);
-  // Never call a static JSON download a successful live API response.
+  const data=await res.json();validate(data);
+  // Track successful snapshot downloads separately from the collection and quote times.
   lastSuccessfulResponse=Date.now();refreshFailed=false;render(data);
  }catch(error){refreshFailed=true;setStatus();document.getElementById('freshness').textContent='STALE · Refresh failed. Showing last known data only. '+error.message;}
  finally{busy=false;button.disabled=false;button.textContent='Refresh Now';timer=setTimeout(refresh,REFRESH_MS);}
