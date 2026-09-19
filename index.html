@@ -56,6 +56,16 @@
 }
 .quote-times{font-size:11px;color:#737b7e;margin:10px 2px}.quote-times summary{cursor:pointer}.quote-times p{line-height:1.5}.quote-times ul{padding-left:18px;line-height:1.7}@media(min-width:700px){.quote-times{display:none}}
 #refresh-now{float:right;padding:8px 12px;border:1px solid #ccd7cf;border-radius:6px;background:white;color:#245641;font:inherit;font-size:12px;cursor:pointer}#refresh-now:disabled{opacity:.6;cursor:wait}.freshness{font-size:12px;line-height:1.4;margin:0 0 12px;padding:8px 10px;border-radius:6px}.freshness.stale{background:#fff0e7;color:#9b3c18}.freshness.ok{background:#edf5ef;color:#245641}.stale-row .price{color:#9b3c18}.quote-warning{display:block;font-size:10px;font-weight:500;color:#9b3c18;margin-top:3px}@media(max-width:699px){.freshness{font-size:10px;margin-bottom:7px;padding:6px 8px}.price small{display:block;font-size:8px}.quote-warning{font-size:9px}}
+/* Separate label lanes keep near-identical current/sale prices readable. */
+.current-label{position:absolute;left:clamp(62px,var(--position),calc(100% - 62px));bottom:10px;transform:translateX(-50%);white-space:nowrap;color:#2b6551;font-size:12px;font-weight:600}
+.current-label::before{content:'●';font-size:9px;margin-right:5px}
+.stock.has-range .price{display:none}.stock.has-range .top{grid-template-columns:1fr}
+.range{margin-top:32px}.range.has-sale{margin-top:52px}
+.sale-label{bottom:31px}.sale-marker{top:-3px}.sale-stem{top:-1px;height:4px}
+.quote-meta{margin-top:10px;font-size:10px;line-height:1.4;color:#7c8580;display:flex;gap:6px;flex-wrap:wrap}
+.quote-state{color:#2b6551;font-weight:600}.stale-row .quote-state{color:#9b3c18}
+.pending-note{position:static;margin:5px 0 0;font-size:10px}
+@media(max-width:699px){.stock{padding:9px 0}.range{margin-top:25px}.range.has-sale{margin-top:44px}.current-label{font-size:11px;bottom:9px}.sale-label{font-size:10px;bottom:27px}.quote-meta{font-size:9px;margin-top:6px;gap:4px}.limits small{display:block;margin-left:0}.quote-times{display:none}}
 </style>
 </head>
 <body>
@@ -70,7 +80,7 @@
 <script id="initial-quotes" type="application/json">{
   "source": "Yahoo Finance · NSE",
   "mode": "snapshot",
-  "collectedAt": "2026-09-19T02:19:54.672807+00:00",
+  "collectedAt": "2026-09-18T12:39:55.943570+00:00",
   "quotes": [
     {
       "symbol": "ZOMIIM",
@@ -118,7 +128,7 @@
       "price": 229.89,
       "previousClose": 229.3,
       "low52": 223.3,
-      "high52": 319.0,
+      "high52": 321.6,
       "asOf": "2026-09-18T09:45:04+00:00",
       "sourceUrl": "https://finance.yahoo.com/quote/JIOFIN.NS/"
     },
@@ -175,11 +185,12 @@ function render(data){
   price.append(element('small','',valid?date(q.asOf):'Quote unavailable'));
   top.append(identity,price);row.append(top);
   if(valid&&finite(q.low52)&&finite(q.high52)&&q.high52>=q.low52){
+   row.classList.add('has-range');
    const range=element('div','range'),track=element('div','track');
    const position=rangePosition(q.price,q.low52,q.high52);
    track.style.setProperty('--position',position+'%');track.setAttribute('role','img');
    track.setAttribute('aria-label',`${name}: current price ${money.format(q.price)}; 52-week low ${money.format(q.low52)}, high ${money.format(q.high52)}.`);
-   track.append(element('div','fill'),element('div','marker'));
+   track.append(element('div','fill'),element('div','marker'),element('span','current-label','Now '+money.format(q.price)));
    const sale=lastSold[label];
    if(finite(sale)){
     range.classList.add('has-sale');
@@ -198,6 +209,7 @@ function render(data){
    if(finite(lastSold[label]))row.append(element('p','sale-fallback','Last sold '+money.format(lastSold[label])));
   }
   if(lastSold[label]===null)row.append(element('p','pending-note','Yet to sell'));
+  const meta=element('div','quote-meta');meta.append(element('span','quote-stamp',valid?'Quote: '+date(q.asOf):'Quote time unavailable'),element('span','quote-state','· STALE'));row.append(meta);
   list.append(row);
  }
  const times=document.getElementById('quote-times');times.replaceChildren();
@@ -211,13 +223,15 @@ function setStatus(){
  const stale=refreshFailed||responseOld||quoteOld||collectionOld;
  const badge=document.getElementById('freshness');badge.className='freshness '+(stale?'stale':'ok');
  badge.textContent=stale?'STALE · '+(refreshFailed?'Could not load the latest saved snapshot.':responseOld?'The last successful response is overdue.':'The collection or market quotes are over 45 minutes old; the market may be closed.'):'Latest saved snapshot · Provider quotes may be delayed.';
- document.getElementById('status').textContent='Last successful snapshot check: '+(lastSuccessfulResponse?date(lastSuccessfulResponse):'None this session')+'. '+(lastData?'Quote collection: '+date(lastData.collectedAt)+'. ':'')+'Page checks every 2 minutes. GitHub collects every 20 minutes on weekdays, 9:37 AM–4:17 PM IST. Refresh Now reloads saved data; it does not run the scraper.';
+ document.getElementById('status').textContent='Last checked: '+(lastSuccessfulResponse?date(lastSuccessfulResponse):'None this session')+'. Checks every 2 min · Scheduled collection every 20 min during weekday market hours. Refresh Now checks the saved snapshot.';
  document.querySelectorAll('.stock').forEach(row=>{
   const q=lastData?.quotes.find(q=>q.symbol===row.dataset.symbol);
   const old=refreshFailed||responseOld||collectionOld||!q||staleQuote(q);
   row.classList.toggle('stale-row',old);row.querySelector('.quote-warning')?.remove();
   row.querySelector('.column-label').textContent=old?'Last known price':'Current price';
-  if(old)row.querySelector('.price').append(element('span','quote-warning','STALE'));
+  row.querySelector('.quote-state').textContent=old?'· STALE':'· Recent';
+  const markerLabel=row.querySelector('.current-label');
+  if(markerLabel&&q)markerLabel.textContent=(old?'Last known ':'Now ')+money.format(q.price);
  });
 }
 async function refresh(){
