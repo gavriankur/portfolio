@@ -1,12 +1,12 @@
 {
   "source": "Yahoo Finance · NSE",
   "mode": "snapshot",
-  "collectedAt": "2026-09-21T09:52:35.215476+00:00",
+  "collectedAt": "2026-09-21T16:27:15.580844+00:00",
   "quotes": [
     {
       "symbol": "ZOMIIM",
       "ticker": "ETERNAL.NS",
-      "price": 335.4,
+      "price": 335.9,
       "previousClose": 326.85,
       "low52": 212.6,
       "high52": 368.45,
@@ -16,7 +16,7 @@
     {
       "symbol": "ADAPOR",
       "ticker": "ADANIPORTS.NS",
-      "price": 1788.5,
+      "price": 1787.1,
       "previousClose": 1824.0,
       "low52": 1292.0,
       "high52": 1891.1,
@@ -26,7 +26,7 @@
     {
       "symbol": "ADAPOW",
       "ticker": "ADANIPOWER.NS",
-      "price": 206.3,
+      "price": 206.55,
       "previousClose": 206.6,
       "low52": 128.1,
       "high52": 254.2,
@@ -46,7 +46,7 @@
     {
       "symbol": "JIOFIN",
       "ticker": "JIOFIN.NS",
-      "price": 230.24,
+      "price": 229.97,
       "previousClose": 229.89,
       "low52": 223.3,
       "high52": 319.0,
@@ -56,7 +56,7 @@
     {
       "symbol": "CIPLA",
       "ticker": "CIPLA.NS",
-      "price": 1379.0,
+      "price": 1386.1,
       "previousClose": 1394.5,
       "low52": 1165.7,
       "high52": 1673.0,
