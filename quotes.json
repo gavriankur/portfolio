@@ -1,66 +1,66 @@
 {
   "source": "Yahoo Finance · NSE",
   "mode": "snapshot",
-  "collectedAt": "2026-09-24T06:17:19.291487+00:00",
+  "collectedAt": "2026-09-24T06:37:14.673490+00:00",
   "quotes": [
     {
       "symbol": "ZOMIIM",
       "ticker": "ETERNAL.NS",
-      "price": 341.15,
+      "price": 340.2,
       "previousClose": 342.65,
       "low52": 212.6,
       "high52": 368.45,
-      "asOf": "2026-09-24T06:17:17+00:00",
+      "asOf": "2026-09-24T06:37:13+00:00",
       "sourceUrl": "https://finance.yahoo.com/quote/ETERNAL.NS/"
     },
     {
       "symbol": "ADAPOR",
       "ticker": "ADANIPORTS.NS",
-      "price": 1787.4,
+      "price": 1789.0,
       "previousClose": 1807.3,
       "low52": 1292.0,
       "high52": 1891.1,
-      "asOf": "2026-09-24T06:17:15+00:00",
+      "asOf": "2026-09-24T06:37:08+00:00",
       "sourceUrl": "https://finance.yahoo.com/quote/ADANIPORTS.NS/"
     },
     {
       "symbol": "ADAPOW",
       "ticker": "ADANIPOWER.NS",
-      "price": 202.28,
+      "price": 201.95,
       "previousClose": 204.8,
       "low52": 128.1,
       "high52": 254.2,
-      "asOf": "2026-09-24T06:17:15+00:00",
+      "asOf": "2026-09-24T06:37:13+00:00",
       "sourceUrl": "https://finance.yahoo.com/quote/ADANIPOWER.NS/"
     },
     {
       "symbol": "YESBANK",
       "ticker": "YESBANK.NS",
-      "price": 22.51,
+      "price": 22.42,
       "previousClose": 23.24,
       "low52": 17.2,
       "high52": 25.78,
-      "asOf": "2026-09-24T06:17:15+00:00",
+      "asOf": "2026-09-24T06:37:13+00:00",
       "sourceUrl": "https://finance.yahoo.com/quote/YESBANK.NS/"
     },
     {
       "symbol": "JIOFIN",
       "ticker": "JIOFIN.NS",
-      "price": 229.75,
+      "price": 229.55,
       "previousClose": 232.15,
       "low52": 223.3,
       "high52": 316.85,
-      "asOf": "2026-09-24T06:17:17+00:00",
+      "asOf": "2026-09-24T06:37:10+00:00",
       "sourceUrl": "https://finance.yahoo.com/quote/JIOFIN.NS/"
     },
     {
       "symbol": "CIPLA",
       "ticker": "CIPLA.NS",
-      "price": 1393.5,
+      "price": 1417.5,
       "previousClose": 1383.0,
       "low52": 1165.7,
       "high52": 1673.0,
-      "asOf": "2026-09-24T06:17:16+00:00",
+      "asOf": "2026-09-24T06:37:14+00:00",
       "sourceUrl": "https://finance.yahoo.com/quote/CIPLA.NS/"
     }
   ]
