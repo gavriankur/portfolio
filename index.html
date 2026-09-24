@@ -67,6 +67,8 @@
 .quote-state{color:#2b6551;font-weight:600}.stale-row .quote-state{color:#9b3c18}
 .pending-note{position:static;margin:5px 0 0;font-size:10px}
 @media(max-width:699px){.stock{padding:9px 0}.range{margin-top:25px}.range.has-sale{margin-top:44px}.current-label{font-size:11px;bottom:9px}.sale-label{font-size:10px;bottom:27px}.quote-meta{font-size:9px;margin-top:6px;gap:4px}.limits small{display:block;margin-left:0}.quote-times{display:none}}
+.fund-section{margin-top:22px}.fund-section h2{font-size:20px;font-weight:600;margin:0 0 5px}.fund-note{font-size:11px;line-height:1.5;color:#7c8580;margin:5px 0 10px}.fund-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 28px;background:#fff;border:1px solid #e3e6e3;border-radius:10px;padding:0 18px}.fund-row{display:flex;align-items:start;justify-content:space-between;gap:12px;padding:14px 0;border-bottom:1px solid #e8eae7}.fund-row:nth-last-child(-n+2){border:0}.fund-name{font-size:13px;font-weight:500;margin:0;line-height:1.4}.fund-nav{text-align:right;font-size:16px;font-weight:600;white-space:nowrap}.fund-date{display:block;font-size:10px;font-weight:400;color:#7c8580;margin-top:4px}.fund-weekly{display:block;font-size:12px;margin-top:7px;font-weight:500}.fund-up{color:#287057}.fund-down{color:#b33d2e}.fund-warning{color:#9b3c18}@media(max-width:699px){.fund-section{margin-top:16px}.fund-list{grid-template-columns:1fr}.fund-row{padding:10px 0}.fund-row:nth-last-child(2){border-bottom:1px solid #e8eae7}.fund-name{font-size:12px}.fund-nav{font-size:14px}}
+.fund-row{display:block;min-width:0}.fund-head{display:flex;justify-content:space-between;gap:12px}.nav-chart{width:100%;height:auto;display:block;margin-top:12px;overflow:visible}.chart-detail{font-size:11px;color:#50665b;min-height:32px;line-height:1.5;margin:4px 0 0}.chart-point{cursor:pointer;outline:none}.chart-point:focus circle,.chart-point:hover circle{stroke:#172d24;stroke-width:3}.chart-caption{font-size:10px;color:#7c8580;margin:8px 0 0}
 </style>
 </head>
 <body>
@@ -75,13 +77,14 @@
 <p id="freshness" role="status" class="freshness stale">STALE · Saved snapshot; awaiting fresh quotes.</p>
 <div class="list" id="stocks" aria-label="Stock prices and 52-week ranges"></div>
 <details class="quote-times"><summary>Quote times &amp; marker key</summary><p>● Green: current price · ◆ Gold: last sold price. Line ends: 52-week low and high.</p><ul id="quote-times"></ul></details>
+<section class="fund-section" aria-labelledby="fund-heading"><h2 id="fund-heading">Mutual funds</h2><p class="fund-note">Regular Growth · Last 3 months · Weekly NAV change (%) · Tap a point for dates and ₹ change</p><div id="fund-list" class="fund-list"></div><p id="fund-status" class="fund-note" role="status"></p></section>
 <footer id="status" role="status">Loading collected quotes…</footer>
 <noscript>Enable JavaScript to display stock prices.</noscript>
 </main>
 <script id="initial-quotes" type="application/json">{
   "source": "Yahoo Finance · NSE",
   "mode": "snapshot",
-  "collectedAt": "2026-09-24T12:42:51.209326+00:00",
+  "collectedAt": "2026-09-24T12:34:45.584737+00:00",
   "quotes": [
     {
       "symbol": "ZOMIIM",
@@ -153,7 +156,466 @@
       "asOf": "2026-09-24T09:44:58+00:00",
       "sourceUrl": "https://finance.yahoo.com/quote/ADANIENT.NS/"
     }
-  ]
+  ],
+  "mutualFunds": {
+    "source": "AMFI",
+    "checkedAt": "2026-09-24T12:51:55.606435+00:00",
+    "refreshFailed": false,
+    "funds": [
+      {
+        "schemeCode": "103504",
+        "name": "SBI Large Cap Fund",
+        "plan": "Regular Growth",
+        "nav": 91.8192,
+        "navDate": "2026-09-23",
+        "weeklyHistory": [
+          {
+            "navDate": "2026-07-01",
+            "nav": 94.2331,
+            "previousDate": "2026-06-24",
+            "previousNav": 94.19,
+            "change": 0.0431,
+            "changePercent": 0.0458
+          },
+          {
+            "navDate": "2026-07-08",
+            "nav": 92.7878,
+            "previousDate": "2026-07-01",
+            "previousNav": 94.2331,
+            "change": -1.4453,
+            "changePercent": -1.5337
+          },
+          {
+            "navDate": "2026-07-15",
+            "nav": 93.8314,
+            "previousDate": "2026-07-08",
+            "previousNav": 92.7878,
+            "change": 1.0436,
+            "changePercent": 1.1247
+          },
+          {
+            "navDate": "2026-07-22",
+            "nav": 92.9496,
+            "previousDate": "2026-07-15",
+            "previousNav": 93.8314,
+            "change": -0.8818,
+            "changePercent": -0.9398
+          },
+          {
+            "navDate": "2026-07-29",
+            "nav": 93.8146,
+            "previousDate": "2026-07-22",
+            "previousNav": 92.9496,
+            "change": 0.865,
+            "changePercent": 0.9306
+          },
+          {
+            "navDate": "2026-08-05",
+            "nav": 95.097,
+            "previousDate": "2026-07-29",
+            "previousNav": 93.8146,
+            "change": 1.2824,
+            "changePercent": 1.367
+          },
+          {
+            "navDate": "2026-08-12",
+            "nav": 94.9218,
+            "previousDate": "2026-08-05",
+            "previousNav": 95.097,
+            "change": -0.1752,
+            "changePercent": -0.1842
+          },
+          {
+            "navDate": "2026-08-19",
+            "nav": 93.6011,
+            "previousDate": "2026-08-12",
+            "previousNav": 94.9218,
+            "change": -1.3207,
+            "changePercent": -1.3914
+          },
+          {
+            "navDate": "2026-08-26",
+            "nav": 94.213,
+            "previousDate": "2026-08-19",
+            "previousNav": 93.6011,
+            "change": 0.6119,
+            "changePercent": 0.6537
+          },
+          {
+            "navDate": "2026-09-02",
+            "nav": 92.5427,
+            "previousDate": "2026-08-26",
+            "previousNav": 94.213,
+            "change": -1.6703,
+            "changePercent": -1.7729
+          },
+          {
+            "navDate": "2026-09-09",
+            "nav": 90.9238,
+            "previousDate": "2026-09-02",
+            "previousNav": 92.5427,
+            "change": -1.6189,
+            "changePercent": -1.7494
+          },
+          {
+            "navDate": "2026-09-16",
+            "nav": 89.7413,
+            "previousDate": "2026-09-09",
+            "previousNav": 90.9238,
+            "change": -1.1825,
+            "changePercent": -1.3005
+          },
+          {
+            "navDate": "2026-09-23",
+            "nav": 91.8192,
+            "previousDate": "2026-09-16",
+            "previousNav": 89.7413,
+            "change": 2.0779,
+            "changePercent": 2.3154
+          }
+        ]
+      },
+      {
+        "schemeCode": "113177",
+        "name": "Nippon India Small Cap Fund",
+        "plan": "Regular Growth",
+        "nav": 186.1238,
+        "navDate": "2026-09-23",
+        "weeklyHistory": [
+          {
+            "navDate": "2026-07-01",
+            "nav": 180.8991,
+            "previousDate": "2026-06-24",
+            "previousNav": 180.8409,
+            "change": 0.0582,
+            "changePercent": 0.0322
+          },
+          {
+            "navDate": "2026-07-08",
+            "nav": 176.549,
+            "previousDate": "2026-07-01",
+            "previousNav": 180.8991,
+            "change": -4.3501,
+            "changePercent": -2.4047
+          },
+          {
+            "navDate": "2026-07-15",
+            "nav": 181.3237,
+            "previousDate": "2026-07-08",
+            "previousNav": 176.549,
+            "change": 4.7747,
+            "changePercent": 2.7045
+          },
+          {
+            "navDate": "2026-07-22",
+            "nav": 179.0745,
+            "previousDate": "2026-07-15",
+            "previousNav": 181.3237,
+            "change": -2.2492,
+            "changePercent": -1.2404
+          },
+          {
+            "navDate": "2026-07-29",
+            "nav": 179.697,
+            "previousDate": "2026-07-22",
+            "previousNav": 179.0745,
+            "change": 0.6225,
+            "changePercent": 0.3476
+          },
+          {
+            "navDate": "2026-08-05",
+            "nav": 183.9892,
+            "previousDate": "2026-07-29",
+            "previousNav": 179.697,
+            "change": 4.2922,
+            "changePercent": 2.3886
+          },
+          {
+            "navDate": "2026-08-12",
+            "nav": 185.4246,
+            "previousDate": "2026-08-05",
+            "previousNav": 183.9892,
+            "change": 1.4354,
+            "changePercent": 0.7802
+          },
+          {
+            "navDate": "2026-08-19",
+            "nav": 185.0873,
+            "previousDate": "2026-08-12",
+            "previousNav": 185.4246,
+            "change": -0.3373,
+            "changePercent": -0.1819
+          },
+          {
+            "navDate": "2026-08-26",
+            "nav": 186.525,
+            "previousDate": "2026-08-19",
+            "previousNav": 185.0873,
+            "change": 1.4377,
+            "changePercent": 0.7768
+          },
+          {
+            "navDate": "2026-09-02",
+            "nav": 184.412,
+            "previousDate": "2026-08-26",
+            "previousNav": 186.525,
+            "change": -2.113,
+            "changePercent": -1.1328
+          },
+          {
+            "navDate": "2026-09-09",
+            "nav": 185.8292,
+            "previousDate": "2026-09-02",
+            "previousNav": 184.412,
+            "change": 1.4172,
+            "changePercent": 0.7685
+          },
+          {
+            "navDate": "2026-09-16",
+            "nav": 181.0476,
+            "previousDate": "2026-09-09",
+            "previousNav": 185.8292,
+            "change": -4.7816,
+            "changePercent": -2.5731
+          },
+          {
+            "navDate": "2026-09-23",
+            "nav": 186.1238,
+            "previousDate": "2026-09-16",
+            "previousNav": 181.0476,
+            "change": 5.0762,
+            "changePercent": 2.8038
+          }
+        ]
+      },
+      {
+        "schemeCode": "104683",
+        "name": "ICICI Prudential Arbitrage Fund",
+        "plan": "Regular Growth",
+        "nav": 36.8511,
+        "navDate": "2026-09-23",
+        "weeklyHistory": [
+          {
+            "navDate": "2026-07-01",
+            "nav": 36.3664,
+            "previousDate": "2026-06-24",
+            "previousNav": 36.2869,
+            "change": 0.0795,
+            "changePercent": 0.2191
+          },
+          {
+            "navDate": "2026-07-08",
+            "nav": 36.4178,
+            "previousDate": "2026-07-01",
+            "previousNav": 36.3664,
+            "change": 0.0514,
+            "changePercent": 0.1413
+          },
+          {
+            "navDate": "2026-07-15",
+            "nav": 36.4333,
+            "previousDate": "2026-07-08",
+            "previousNav": 36.4178,
+            "change": 0.0155,
+            "changePercent": 0.0426
+          },
+          {
+            "navDate": "2026-07-22",
+            "nav": 36.495,
+            "previousDate": "2026-07-15",
+            "previousNav": 36.4333,
+            "change": 0.0617,
+            "changePercent": 0.1694
+          },
+          {
+            "navDate": "2026-07-29",
+            "nav": 36.518,
+            "previousDate": "2026-07-22",
+            "previousNav": 36.495,
+            "change": 0.023,
+            "changePercent": 0.063
+          },
+          {
+            "navDate": "2026-08-05",
+            "nav": 36.6121,
+            "previousDate": "2026-07-29",
+            "previousNav": 36.518,
+            "change": 0.0941,
+            "changePercent": 0.2577
+          },
+          {
+            "navDate": "2026-08-12",
+            "nav": 36.6387,
+            "previousDate": "2026-08-05",
+            "previousNav": 36.6121,
+            "change": 0.0266,
+            "changePercent": 0.0727
+          },
+          {
+            "navDate": "2026-08-19",
+            "nav": 36.6757,
+            "previousDate": "2026-08-12",
+            "previousNav": 36.6387,
+            "change": 0.037,
+            "changePercent": 0.101
+          },
+          {
+            "navDate": "2026-08-26",
+            "nav": 36.5962,
+            "previousDate": "2026-08-19",
+            "previousNav": 36.6757,
+            "change": -0.0795,
+            "changePercent": -0.2168
+          },
+          {
+            "navDate": "2026-09-02",
+            "nav": 36.7449,
+            "previousDate": "2026-08-26",
+            "previousNav": 36.5962,
+            "change": 0.1487,
+            "changePercent": 0.4063
+          },
+          {
+            "navDate": "2026-09-09",
+            "nav": 36.744,
+            "previousDate": "2026-09-02",
+            "previousNav": 36.7449,
+            "change": -0.0009,
+            "changePercent": -0.0024
+          },
+          {
+            "navDate": "2026-09-16",
+            "nav": 36.768,
+            "previousDate": "2026-09-09",
+            "previousNav": 36.744,
+            "change": 0.024,
+            "changePercent": 0.0653
+          },
+          {
+            "navDate": "2026-09-23",
+            "nav": 36.8511,
+            "previousDate": "2026-09-16",
+            "previousNav": 36.768,
+            "change": 0.0831,
+            "changePercent": 0.226
+          }
+        ]
+      },
+      {
+        "schemeCode": "113296",
+        "name": "Nippon India Index Fund - Nifty 50 Plan",
+        "plan": "Regular Growth",
+        "nav": 40.0649,
+        "navDate": "2026-09-23",
+        "weeklyHistory": [
+          {
+            "navDate": "2026-07-01",
+            "nav": 40.9294,
+            "previousDate": "2026-06-24",
+            "previousNav": 40.9527,
+            "change": -0.0233,
+            "changePercent": -0.0569
+          },
+          {
+            "navDate": "2026-07-08",
+            "nav": 40.7349,
+            "previousDate": "2026-07-01",
+            "previousNav": 40.9294,
+            "change": -0.1945,
+            "changePercent": -0.4752
+          },
+          {
+            "navDate": "2026-07-15",
+            "nav": 41.0781,
+            "previousDate": "2026-07-08",
+            "previousNav": 40.7349,
+            "change": 0.3432,
+            "changePercent": 0.8425
+          },
+          {
+            "navDate": "2026-07-22",
+            "nav": 40.9419,
+            "previousDate": "2026-07-15",
+            "previousNav": 41.0781,
+            "change": -0.1362,
+            "changePercent": -0.3316
+          },
+          {
+            "navDate": "2026-07-29",
+            "nav": 41.4003,
+            "previousDate": "2026-07-22",
+            "previousNav": 40.9419,
+            "change": 0.4584,
+            "changePercent": 1.1196
+          },
+          {
+            "navDate": "2026-08-05",
+            "nav": 42.0761,
+            "previousDate": "2026-07-29",
+            "previousNav": 41.4003,
+            "change": 0.6758,
+            "changePercent": 1.6324
+          },
+          {
+            "navDate": "2026-08-12",
+            "nav": 41.7603,
+            "previousDate": "2026-08-05",
+            "previousNav": 42.0761,
+            "change": -0.3158,
+            "changePercent": -0.7505
+          },
+          {
+            "navDate": "2026-08-19",
+            "nav": 41.1502,
+            "previousDate": "2026-08-12",
+            "previousNav": 41.7603,
+            "change": -0.6101,
+            "changePercent": -1.461
+          },
+          {
+            "navDate": "2026-08-26",
+            "nav": 41.3683,
+            "previousDate": "2026-08-19",
+            "previousNav": 41.1502,
+            "change": 0.2181,
+            "changePercent": 0.53
+          },
+          {
+            "navDate": "2026-09-02",
+            "nav": 40.8704,
+            "previousDate": "2026-08-26",
+            "previousNav": 41.3683,
+            "change": -0.4979,
+            "changePercent": -1.2036
+          },
+          {
+            "navDate": "2026-09-09",
+            "nav": 40.045,
+            "previousDate": "2026-09-02",
+            "previousNav": 40.8704,
+            "change": -0.8254,
+            "changePercent": -2.0196
+          },
+          {
+            "navDate": "2026-09-16",
+            "nav": 39.6767,
+            "previousDate": "2026-09-09",
+            "previousNav": 40.045,
+            "change": -0.3683,
+            "changePercent": -0.9197
+          },
+          {
+            "navDate": "2026-09-23",
+            "nav": 40.0649,
+            "previousDate": "2026-09-16",
+            "previousNav": 39.6767,
+            "change": 0.3882,
+            "changePercent": 0.9784
+          }
+        ]
+      }
+    ]
+  }
 }</script>
 <script>
 'use strict';
@@ -225,9 +687,46 @@ function render(data){
  }
  const times=document.getElementById('quote-times');times.replaceChildren();
  for(const [label,name] of stocks){const q=data.quotes.find(q=>q.symbol===label);times.append(element('li','',name+': '+(q&&Number.isFinite(Date.parse(q.asOf))?date(q.asOf):'Unavailable')));}
- lastData=data;setStatus();
+ lastData=data;renderFunds(data);setStatus();
+}
+const fundDefinitions=[['103504','SBI Large Cap Fund'],['113177','Nippon India Small Cap Fund'],['104683','ICICI Prudential Arbitrage Fund'],['113296','Nippon India Index Fund – Nifty 50 Plan']];
+const navMoney=new Intl.NumberFormat('en-IN',{style:'currency',currency:'INR',minimumFractionDigits:4,maximumFractionDigits:4});
+function navChart(f){
+ const wrap=element('div','nav-chart-wrap'),series=f?.weeklyHistory;
+ if(!Array.isArray(series)||series.length!==13||!series.some(p=>p&&Number.isFinite(p.changePercent))){wrap.append(element('p','chart-detail fund-warning','Three-month history unavailable — run the updated collector.'));return wrap;}
+ const points=series.map(p=>p&&Number.isFinite(p.changePercent)?p:null),values=points.filter(Boolean).map(p=>p.changePercent);
+ const low=Math.min(0,...values),high=Math.max(0,...values),pad=Math.max((high-low)*.18,.05),min=low-pad,max=high+pad;
+ const x=i=>42+i*29,y=v=>18+(max-v)/(max-min)*100;
+ const ns='http://www.w3.org/2000/svg',svg=document.createElementNS(ns,'svg');svg.setAttribute('viewBox','0 0 410 145');svg.setAttribute('class','nav-chart');svg.setAttribute('aria-label','Weekly NAV percentage change over the last 13 weeks');
+ function node(tag,attrs,text){const n=document.createElementNS(ns,tag);for(const [k,v] of Object.entries(attrs))n.setAttribute(k,v);if(text)n.textContent=text;return n;}
+ for(const v of [...new Set([low,0,high])]){svg.append(node('line',{x1:42,x2:390,y1:y(v),y2:y(v),stroke:v===0?'#9caca4':'#e7ece8','stroke-dasharray':v===0?'4 3':'none'}));svg.append(node('text',{x:36,y:y(v)+3,'text-anchor':'end','font-size':9,fill:'#6b7871'},v.toFixed(1)+'%'));}
+ let path='',active=false;points.forEach((p,i)=>{if(!p){active=false;return;}path+=(active?' L':' M')+x(i)+' '+y(p.changePercent);active=true;});svg.append(node('path',{d:path,fill:'none',stroke:'#287057','stroke-width':2,'stroke-linejoin':'round'}));
+ const detail=element('p','chart-detail');
+ const short=d=>new Date(d+'T00:00:00').toLocaleDateString('en-IN',{day:'2-digit',month:'short'});
+ const describe=p=>{const sign=p.changePercent>0?'+':'';detail.textContent=short(p.previousDate)+' → '+short(p.navDate)+': '+sign+p.changePercent.toFixed(2)+'% · '+(p.change>0?'+':'')+navMoney.format(p.change)+' · NAV '+navMoney.format(p.nav);};
+ points.forEach((p,i)=>{if(!p)return;const g=node('g',{tabindex:0,role:'button',class:'chart-point','aria-label':p.navDate+': '+p.changePercent.toFixed(2)+' percent weekly change'});g.append(node('circle',{cx:x(i),cy:y(p.changePercent),r:10,fill:'transparent'}),node('circle',{cx:x(i),cy:y(p.changePercent),r:3.5,fill:p.changePercent<0?'#b33d2e':'#287057',stroke:'white','stroke-width':1}));for(const event of ['mouseenter','focus','click'])g.addEventListener(event,()=>describe(p));svg.append(g);if(i===0||i===6||i===12)svg.append(node('text',{x:x(i),y:139,'text-anchor':'middle','font-size':10,fill:'#6b7871'},short(p.navDate)));});
+ describe(points.filter(Boolean).at(-1));wrap.append(svg,detail,element('p','chart-caption','13 weekly changes · nearest published NAV on/before each weekly date'+(points.some(p=>!p)?' · gaps indicate missing history':'')));
+ if(f.historyError)wrap.append(element('p','chart-detail fund-warning',f.historyError));return wrap;
+}
+function renderFunds(data){
+ const payload=data?.mutualFunds,box=document.getElementById('fund-list');box.replaceChildren();
+ for(const [code,name] of fundDefinitions){
+  const f=payload?.funds?.find(f=>f.schemeCode===code);
+  const valid=f&&f.plan==='Regular Growth'&&finite(f.nav)&&/^\d{4}-\d{2}-\d{2}$/.test(f.navDate)&&Number.isFinite(Date.parse(f.navDate));
+  const row=element('div','fund-row'),value=element('div','fund-nav',valid?navMoney.format(f.nav):'—');
+  if(valid){const day=new Date(f.navDate+'T00:00:00+05:30');value.append(element('small','fund-date','NAV: '+day.toLocaleDateString('en-IN',{timeZone:'Asia/Kolkata',day:'2-digit',month:'short',year:'numeric'})));
+   if(Date.now()-day.getTime()>4*86400000)value.append(element('small','fund-date fund-warning','Old NAV — check source'));
+  }else value.append(element('small','fund-date','NAV unavailable'));
+  const head=element('div','fund-head');head.append(element('h3','fund-name',name),value);row.append(head,navChart(f));box.append(row);
+ }
 }
 function setStatus(){
+ const mf=lastData?.mutualFunds;
+ const mfStatus=document.getElementById('fund-status');
+ const mfFailed=refreshFailed||!mf||mf.refreshFailed;
+ mfStatus.className='fund-note'+(mfFailed?' fund-warning':'');
+ mfStatus.textContent=(mfFailed?'NAV refresh unconfirmed — showing saved values only. ':'NAV and history: AMFI. ')+(mf?.checkedAt?'Last NAV fetch: '+date(mf.checkedAt)+'. ':'')+'NAV dates may precede today; funds publish once daily.';
+
  const responseOld=!lastSuccessfulResponse||Date.now()-lastSuccessfulResponse>MAX_RESPONSE_AGE_MS;
  const quoteOld=!lastData||lastData.quotes.some(q=>staleQuote(q));
  const collectionOld=!lastData||Date.now()-Date.parse(lastData.collectedAt)>45*60000;
