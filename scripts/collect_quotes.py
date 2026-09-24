@@ -11,7 +11,7 @@ ROOT = Path(__file__).resolve().parents[1]
 SYMBOLS = {
     'ZOMIIM': 'ETERNAL.NS', 'ADAPOR': 'ADANIPORTS.NS',
     'ADAPOW': 'ADANIPOWER.NS', 'YESBANK': 'YESBANK.NS',
-    'JIOFIN': 'JIOFIN.NS', 'CIPLA': 'CIPLA.NS',
+    'JIOFIN': 'JIOFIN.NS', 'CIPLA': 'CIPLA.NS', 'ADAENT': 'ADANIENT.NS',
 }
 
 
@@ -73,8 +73,9 @@ def main():
         temporary = path.with_suffix(path.suffix + '.tmp')
         temporary.write_text(content)
         temporary.replace(path)
-    print('Saved six verified quotes and updated the standalone HTML snapshot.')
+    print('Saved all verified quotes and updated the standalone HTML snapshot.')
 
 
 if __name__ == '__main__':
     main()
+
