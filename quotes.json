@@ -1,7 +1,7 @@
 {
   "source": "Yahoo Finance · NSE",
   "mode": "snapshot",
-  "collectedAt": "2026-09-30T10:57:16.953454+00:00",
+  "collectedAt": "2026-09-30T11:17:14.982190+00:00",
   "quotes": [
     {
       "symbol": "ZOMIIM",
@@ -76,7 +76,7 @@
   ],
   "mutualFunds": {
     "source": "AMFI",
-    "checkedAt": "2026-09-30T10:57:19.850686+00:00",
+    "checkedAt": "2026-09-30T11:17:17.813446+00:00",
     "refreshFailed": false,
     "funds": [
       {
