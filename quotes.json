@@ -1,7 +1,7 @@
 {
   "source": "Yahoo Finance · NSE",
   "mode": "snapshot",
-  "collectedAt": "2026-10-22T11:17:13.276061+00:00",
+  "collectedAt": "2026-10-22T14:38:35.863089+00:00",
   "quotes": [
     {
       "symbol": "ZOMIIM",
@@ -76,8 +76,8 @@
   ],
   "mutualFunds": {
     "source": "AMFI",
-    "checkedAt": "2026-10-22T09:57:22.681471+00:00",
-    "refreshFailed": true,
+    "checkedAt": "2026-10-22T14:38:42.076985+00:00",
+    "refreshFailed": false,
     "funds": [
       {
         "schemeCode": "103504",
@@ -531,7 +531,6 @@
           }
         ]
       }
-    ],
-    "error": "AMFI NAV refresh failed; any values shown are previously collected."
+    ]
   }
 }
