@@ -1,7 +1,7 @@
 {
   "source": "Yahoo Finance · NSE",
   "mode": "snapshot",
-  "collectedAt": "2026-10-21T14:35:54.049464+00:00",
+  "collectedAt": "2026-10-22T03:37:15.484642+00:00",
   "quotes": [
     {
       "symbol": "ZOMIIM",
@@ -76,119 +76,119 @@
   ],
   "mutualFunds": {
     "source": "AMFI",
-    "checkedAt": "2026-10-21T14:35:56.782696+00:00",
+    "checkedAt": "2026-10-22T03:38:33.866168+00:00",
     "refreshFailed": false,
     "funds": [
       {
         "schemeCode": "103504",
         "name": "SBI Large Cap Fund",
         "plan": "Regular Growth",
-        "nav": 88.8211,
-        "navDate": "2026-10-19",
+        "nav": 88.3055,
+        "navDate": "2026-10-21",
         "weeklyHistory": [
           {
-            "navDate": "2026-07-27",
-            "nav": 93.1731,
-            "previousDate": "2026-07-20",
-            "previousNav": 94.0088,
-            "change": -0.8357,
-            "changePercent": -0.889
+            "navDate": "2026-07-29",
+            "nav": 93.8146,
+            "previousDate": "2026-07-22",
+            "previousNav": 92.9496,
+            "change": 0.865,
+            "changePercent": 0.9306
           },
           {
-            "navDate": "2026-08-03",
-            "nav": 95.7253,
-            "previousDate": "2026-07-27",
-            "previousNav": 93.1731,
-            "change": 2.5522,
-            "changePercent": 2.7392
+            "navDate": "2026-08-05",
+            "nav": 95.097,
+            "previousDate": "2026-07-29",
+            "previousNav": 93.8146,
+            "change": 1.2824,
+            "changePercent": 1.367
           },
           {
-            "navDate": "2026-08-10",
-            "nav": 95.1488,
-            "previousDate": "2026-08-03",
-            "previousNav": 95.7253,
-            "change": -0.5765,
-            "changePercent": -0.6022
+            "navDate": "2026-08-12",
+            "nav": 94.9218,
+            "previousDate": "2026-08-05",
+            "previousNav": 95.097,
+            "change": -0.1752,
+            "changePercent": -0.1842
           },
           {
-            "navDate": "2026-08-17",
-            "nav": 94.2688,
-            "previousDate": "2026-08-10",
-            "previousNav": 95.1488,
-            "change": -0.88,
-            "changePercent": -0.9249
+            "navDate": "2026-08-19",
+            "nav": 93.6011,
+            "previousDate": "2026-08-12",
+            "previousNav": 94.9218,
+            "change": -1.3207,
+            "changePercent": -1.3914
           },
           {
-            "navDate": "2026-08-24",
-            "nav": 93.8866,
-            "previousDate": "2026-08-17",
-            "previousNav": 94.2688,
-            "change": -0.3822,
-            "changePercent": -0.4054
+            "navDate": "2026-08-26",
+            "nav": 94.213,
+            "previousDate": "2026-08-19",
+            "previousNav": 93.6011,
+            "change": 0.6119,
+            "changePercent": 0.6537
           },
           {
-            "navDate": "2026-08-31",
-            "nav": 93.8199,
-            "previousDate": "2026-08-24",
-            "previousNav": 93.8866,
-            "change": -0.0667,
-            "changePercent": -0.071
+            "navDate": "2026-09-02",
+            "nav": 92.5427,
+            "previousDate": "2026-08-26",
+            "previousNav": 94.213,
+            "change": -1.6703,
+            "changePercent": -1.7729
           },
           {
-            "navDate": "2026-09-07",
-            "nav": 92.1471,
-            "previousDate": "2026-08-31",
-            "previousNav": 93.8199,
-            "change": -1.6728,
-            "changePercent": -1.783
+            "navDate": "2026-09-09",
+            "nav": 90.9238,
+            "previousDate": "2026-09-02",
+            "previousNav": 92.5427,
+            "change": -1.6189,
+            "changePercent": -1.7494
           },
           {
-            "navDate": "2026-09-11",
-            "nav": 90.8433,
-            "previousDate": "2026-09-07",
-            "previousNav": 92.1471,
-            "change": -1.3038,
-            "changePercent": -1.4149
+            "navDate": "2026-09-16",
+            "nav": 89.7413,
+            "previousDate": "2026-09-09",
+            "previousNav": 90.9238,
+            "change": -1.1825,
+            "changePercent": -1.3005
           },
           {
-            "navDate": "2026-09-21",
-            "nav": 91.3389,
-            "previousDate": "2026-09-11",
-            "previousNav": 90.8433,
-            "change": 0.4956,
-            "changePercent": 0.5456
+            "navDate": "2026-09-23",
+            "nav": 91.8192,
+            "previousDate": "2026-09-16",
+            "previousNav": 89.7413,
+            "change": 2.0779,
+            "changePercent": 2.3154
           },
           {
-            "navDate": "2026-09-28",
-            "nav": 89.3962,
-            "previousDate": "2026-09-21",
-            "previousNav": 91.3389,
-            "change": -1.9427,
-            "changePercent": -2.1269
+            "navDate": "2026-09-30",
+            "nav": 89.154,
+            "previousDate": "2026-09-23",
+            "previousNav": 91.8192,
+            "change": -2.6652,
+            "changePercent": -2.9027
           },
           {
-            "navDate": "2026-10-05",
-            "nav": 88.5681,
-            "previousDate": "2026-09-28",
-            "previousNav": 89.3962,
-            "change": -0.8281,
-            "changePercent": -0.9263
+            "navDate": "2026-10-07",
+            "nav": 89.1486,
+            "previousDate": "2026-09-30",
+            "previousNav": 89.154,
+            "change": -0.0054,
+            "changePercent": -0.0061
           },
           {
-            "navDate": "2026-10-12",
-            "nav": 87.948,
-            "previousDate": "2026-10-05",
-            "previousNav": 88.5681,
-            "change": -0.6201,
-            "changePercent": -0.7001
+            "navDate": "2026-10-14",
+            "nav": 88.4766,
+            "previousDate": "2026-10-07",
+            "previousNav": 89.1486,
+            "change": -0.672,
+            "changePercent": -0.7538
           },
           {
-            "navDate": "2026-10-19",
-            "nav": 88.8211,
-            "previousDate": "2026-10-12",
-            "previousNav": 87.948,
-            "change": 0.8731,
-            "changePercent": 0.9927
+            "navDate": "2026-10-21",
+            "nav": 88.3055,
+            "previousDate": "2026-10-14",
+            "previousNav": 88.4766,
+            "change": -0.1711,
+            "changePercent": -0.1934
           }
         ]
       },
@@ -196,112 +196,112 @@
         "schemeCode": "113177",
         "name": "Nippon India Small Cap Fund",
         "plan": "Regular Growth",
-        "nav": 176.8667,
-        "navDate": "2026-10-19",
+        "nav": 172.9037,
+        "navDate": "2026-10-21",
         "weeklyHistory": [
           {
-            "navDate": "2026-07-27",
-            "nav": 179.1975,
-            "previousDate": "2026-07-20",
-            "previousNav": 180.4161,
-            "change": -1.2186,
-            "changePercent": -0.6754
+            "navDate": "2026-07-29",
+            "nav": 179.697,
+            "previousDate": "2026-07-22",
+            "previousNav": 179.0745,
+            "change": 0.6225,
+            "changePercent": 0.3476
           },
           {
-            "navDate": "2026-08-03",
-            "nav": 182.2961,
-            "previousDate": "2026-07-27",
-            "previousNav": 179.1975,
-            "change": 3.0986,
-            "changePercent": 1.7292
+            "navDate": "2026-08-05",
+            "nav": 183.9892,
+            "previousDate": "2026-07-29",
+            "previousNav": 179.697,
+            "change": 4.2922,
+            "changePercent": 2.3886
           },
           {
-            "navDate": "2026-08-10",
-            "nav": 184.2328,
-            "previousDate": "2026-08-03",
-            "previousNav": 182.2961,
-            "change": 1.9367,
-            "changePercent": 1.0624
+            "navDate": "2026-08-12",
+            "nav": 185.4246,
+            "previousDate": "2026-08-05",
+            "previousNav": 183.9892,
+            "change": 1.4354,
+            "changePercent": 0.7802
           },
           {
-            "navDate": "2026-08-17",
-            "nav": 185.8773,
-            "previousDate": "2026-08-10",
-            "previousNav": 184.2328,
-            "change": 1.6445,
-            "changePercent": 0.8926
+            "navDate": "2026-08-19",
+            "nav": 185.0873,
+            "previousDate": "2026-08-12",
+            "previousNav": 185.4246,
+            "change": -0.3373,
+            "changePercent": -0.1819
           },
           {
-            "navDate": "2026-08-24",
-            "nav": 185.8428,
-            "previousDate": "2026-08-17",
-            "previousNav": 185.8773,
-            "change": -0.0345,
-            "changePercent": -0.0186
+            "navDate": "2026-08-26",
+            "nav": 186.525,
+            "previousDate": "2026-08-19",
+            "previousNav": 185.0873,
+            "change": 1.4377,
+            "changePercent": 0.7768
           },
           {
-            "navDate": "2026-08-31",
-            "nav": 186.4546,
-            "previousDate": "2026-08-24",
-            "previousNav": 185.8428,
-            "change": 0.6118,
-            "changePercent": 0.3292
+            "navDate": "2026-09-02",
+            "nav": 184.412,
+            "previousDate": "2026-08-26",
+            "previousNav": 186.525,
+            "change": -2.113,
+            "changePercent": -1.1328
           },
           {
-            "navDate": "2026-09-07",
-            "nav": 186.038,
-            "previousDate": "2026-08-31",
-            "previousNav": 186.4546,
-            "change": -0.4166,
-            "changePercent": -0.2234
+            "navDate": "2026-09-09",
+            "nav": 185.8292,
+            "previousDate": "2026-09-02",
+            "previousNav": 184.412,
+            "change": 1.4172,
+            "changePercent": 0.7685
           },
           {
-            "navDate": "2026-09-11",
-            "nav": 185.3841,
-            "previousDate": "2026-09-07",
-            "previousNav": 186.038,
-            "change": -0.6539,
-            "changePercent": -0.3515
+            "navDate": "2026-09-16",
+            "nav": 181.0476,
+            "previousDate": "2026-09-09",
+            "previousNav": 185.8292,
+            "change": -4.7816,
+            "changePercent": -2.5731
           },
           {
-            "navDate": "2026-09-21",
-            "nav": 185.365,
-            "previousDate": "2026-09-11",
-            "previousNav": 185.3841,
-            "change": -0.0191,
-            "changePercent": -0.0103
+            "navDate": "2026-09-23",
+            "nav": 186.1238,
+            "previousDate": "2026-09-16",
+            "previousNav": 181.0476,
+            "change": 5.0762,
+            "changePercent": 2.8038
           },
           {
-            "navDate": "2026-09-28",
-            "nav": 181.12,
-            "previousDate": "2026-09-21",
-            "previousNav": 185.365,
-            "change": -4.245,
-            "changePercent": -2.2901
+            "navDate": "2026-09-30",
+            "nav": 180.9788,
+            "previousDate": "2026-09-23",
+            "previousNav": 186.1238,
+            "change": -5.145,
+            "changePercent": -2.7643
           },
           {
-            "navDate": "2026-10-05",
-            "nav": 179.4543,
-            "previousDate": "2026-09-28",
-            "previousNav": 181.12,
-            "change": -1.6657,
-            "changePercent": -0.9197
+            "navDate": "2026-10-07",
+            "nav": 181.9426,
+            "previousDate": "2026-09-30",
+            "previousNav": 180.9788,
+            "change": 0.9638,
+            "changePercent": 0.5325
           },
           {
-            "navDate": "2026-10-12",
-            "nav": 179.9526,
-            "previousDate": "2026-10-05",
-            "previousNav": 179.4543,
-            "change": 0.4983,
-            "changePercent": 0.2777
+            "navDate": "2026-10-14",
+            "nav": 181.0631,
+            "previousDate": "2026-10-07",
+            "previousNav": 181.9426,
+            "change": -0.8795,
+            "changePercent": -0.4834
           },
           {
-            "navDate": "2026-10-19",
-            "nav": 176.8667,
-            "previousDate": "2026-10-12",
-            "previousNav": 179.9526,
-            "change": -3.0859,
-            "changePercent": -1.7148
+            "navDate": "2026-10-21",
+            "nav": 172.9037,
+            "previousDate": "2026-10-14",
+            "previousNav": 181.0631,
+            "change": -8.1594,
+            "changePercent": -4.5064
           }
         ]
       },
@@ -309,112 +309,112 @@
         "schemeCode": "104683",
         "name": "ICICI Prudential Arbitrage Fund",
         "plan": "Regular Growth",
-        "nav": 36.9791,
-        "navDate": "2026-10-19",
+        "nav": 37.0412,
+        "navDate": "2026-10-21",
         "weeklyHistory": [
           {
-            "navDate": "2026-07-27",
-            "nav": 36.4877,
-            "previousDate": "2026-07-20",
-            "previousNav": 36.4478,
-            "change": 0.0399,
-            "changePercent": 0.1095
+            "navDate": "2026-07-29",
+            "nav": 36.518,
+            "previousDate": "2026-07-22",
+            "previousNav": 36.495,
+            "change": 0.023,
+            "changePercent": 0.063
           },
           {
-            "navDate": "2026-08-03",
-            "nav": 36.7098,
-            "previousDate": "2026-07-27",
-            "previousNav": 36.4877,
-            "change": 0.2221,
-            "changePercent": 0.6087
+            "navDate": "2026-08-05",
+            "nav": 36.6121,
+            "previousDate": "2026-07-29",
+            "previousNav": 36.518,
+            "change": 0.0941,
+            "changePercent": 0.2577
           },
           {
-            "navDate": "2026-08-10",
-            "nav": 36.6166,
-            "previousDate": "2026-08-03",
-            "previousNav": 36.7098,
-            "change": -0.0932,
-            "changePercent": -0.2539
+            "navDate": "2026-08-12",
+            "nav": 36.6387,
+            "previousDate": "2026-08-05",
+            "previousNav": 36.6121,
+            "change": 0.0266,
+            "changePercent": 0.0727
           },
           {
-            "navDate": "2026-08-17",
-            "nav": 36.5843,
-            "previousDate": "2026-08-10",
-            "previousNav": 36.6166,
-            "change": -0.0323,
-            "changePercent": -0.0882
+            "navDate": "2026-08-19",
+            "nav": 36.6757,
+            "previousDate": "2026-08-12",
+            "previousNav": 36.6387,
+            "change": 0.037,
+            "changePercent": 0.101
           },
           {
-            "navDate": "2026-08-24",
-            "nav": 36.7108,
-            "previousDate": "2026-08-17",
-            "previousNav": 36.5843,
-            "change": 0.1265,
-            "changePercent": 0.3458
+            "navDate": "2026-08-26",
+            "nav": 36.5962,
+            "previousDate": "2026-08-19",
+            "previousNav": 36.6757,
+            "change": -0.0795,
+            "changePercent": -0.2168
           },
           {
-            "navDate": "2026-08-31",
-            "nav": 36.67,
-            "previousDate": "2026-08-24",
-            "previousNav": 36.7108,
-            "change": -0.0408,
-            "changePercent": -0.1111
+            "navDate": "2026-09-02",
+            "nav": 36.7449,
+            "previousDate": "2026-08-26",
+            "previousNav": 36.5962,
+            "change": 0.1487,
+            "changePercent": 0.4063
           },
           {
-            "navDate": "2026-09-07",
-            "nav": 36.7584,
-            "previousDate": "2026-08-31",
-            "previousNav": 36.67,
-            "change": 0.0884,
-            "changePercent": 0.2411
+            "navDate": "2026-09-09",
+            "nav": 36.744,
+            "previousDate": "2026-09-02",
+            "previousNav": 36.7449,
+            "change": -0.0009,
+            "changePercent": -0.0024
           },
           {
-            "navDate": "2026-09-11",
-            "nav": 36.7477,
-            "previousDate": "2026-09-07",
-            "previousNav": 36.7584,
-            "change": -0.0107,
-            "changePercent": -0.0291
+            "navDate": "2026-09-16",
+            "nav": 36.768,
+            "previousDate": "2026-09-09",
+            "previousNav": 36.744,
+            "change": 0.024,
+            "changePercent": 0.0653
           },
           {
-            "navDate": "2026-09-21",
-            "nav": 36.8026,
-            "previousDate": "2026-09-11",
-            "previousNav": 36.7477,
-            "change": 0.0549,
-            "changePercent": 0.1494
+            "navDate": "2026-09-23",
+            "nav": 36.8511,
+            "previousDate": "2026-09-16",
+            "previousNav": 36.768,
+            "change": 0.0831,
+            "changePercent": 0.226
           },
           {
-            "navDate": "2026-09-28",
-            "nav": 36.8602,
-            "previousDate": "2026-09-21",
-            "previousNav": 36.8026,
-            "change": 0.0576,
-            "changePercent": 0.1565
+            "navDate": "2026-09-30",
+            "nav": 36.8715,
+            "previousDate": "2026-09-23",
+            "previousNav": 36.8511,
+            "change": 0.0204,
+            "changePercent": 0.0554
           },
           {
-            "navDate": "2026-10-05",
-            "nav": 36.9183,
-            "previousDate": "2026-09-28",
-            "previousNav": 36.8602,
-            "change": 0.0581,
-            "changePercent": 0.1576
+            "navDate": "2026-10-07",
+            "nav": 36.9388,
+            "previousDate": "2026-09-30",
+            "previousNav": 36.8715,
+            "change": 0.0673,
+            "changePercent": 0.1825
           },
           {
-            "navDate": "2026-10-12",
-            "nav": 36.9788,
-            "previousDate": "2026-10-05",
-            "previousNav": 36.9183,
-            "change": 0.0605,
-            "changePercent": 0.1639
+            "navDate": "2026-10-14",
+            "nav": 36.9496,
+            "previousDate": "2026-10-07",
+            "previousNav": 36.9388,
+            "change": 0.0108,
+            "changePercent": 0.0292
           },
           {
-            "navDate": "2026-10-19",
-            "nav": 36.9791,
-            "previousDate": "2026-10-12",
-            "previousNav": 36.9788,
-            "change": 0.0003,
-            "changePercent": 0.0008
+            "navDate": "2026-10-21",
+            "nav": 37.0412,
+            "previousDate": "2026-10-14",
+            "previousNav": 36.9496,
+            "change": 0.0916,
+            "changePercent": 0.2479
           }
         ]
       },
@@ -422,112 +422,112 @@
         "schemeCode": "113296",
         "name": "Nippon India Index Fund - Nifty 50 Plan",
         "plan": "Regular Growth",
-        "nav": 39.1065,
-        "navDate": "2026-10-19",
+        "nav": 38.9731,
+        "navDate": "2026-10-21",
         "weeklyHistory": [
           {
-            "navDate": "2026-07-27",
-            "nav": 40.9687,
-            "previousDate": "2026-07-20",
-            "previousNav": 41.3545,
-            "change": -0.3858,
-            "changePercent": -0.9329
+            "navDate": "2026-07-29",
+            "nav": 41.4003,
+            "previousDate": "2026-07-22",
+            "previousNav": 40.9419,
+            "change": 0.4584,
+            "changePercent": 1.1196
           },
           {
-            "navDate": "2026-08-03",
-            "nav": 42.3315,
-            "previousDate": "2026-07-27",
-            "previousNav": 40.9687,
-            "change": 1.3628,
-            "changePercent": 3.3264
+            "navDate": "2026-08-05",
+            "nav": 42.0761,
+            "previousDate": "2026-07-29",
+            "previousNav": 41.4003,
+            "change": 0.6758,
+            "changePercent": 1.6324
           },
           {
-            "navDate": "2026-08-10",
-            "nav": 42.0133,
-            "previousDate": "2026-08-03",
-            "previousNav": 42.3315,
-            "change": -0.3182,
-            "changePercent": -0.7517
+            "navDate": "2026-08-12",
+            "nav": 41.7603,
+            "previousDate": "2026-08-05",
+            "previousNav": 42.0761,
+            "change": -0.3158,
+            "changePercent": -0.7505
           },
           {
-            "navDate": "2026-08-17",
-            "nav": 41.5083,
-            "previousDate": "2026-08-10",
-            "previousNav": 42.0133,
-            "change": -0.505,
-            "changePercent": -1.202
+            "navDate": "2026-08-19",
+            "nav": 41.1502,
+            "previousDate": "2026-08-12",
+            "previousNav": 41.7603,
+            "change": -0.6101,
+            "changePercent": -1.461
           },
           {
-            "navDate": "2026-08-24",
-            "nav": 41.3884,
-            "previousDate": "2026-08-17",
-            "previousNav": 41.5083,
-            "change": -0.1199,
-            "changePercent": -0.2889
+            "navDate": "2026-08-26",
+            "nav": 41.3683,
+            "previousDate": "2026-08-19",
+            "previousNav": 41.1502,
+            "change": 0.2181,
+            "changePercent": 0.53
           },
           {
-            "navDate": "2026-08-31",
-            "nav": 41.1487,
-            "previousDate": "2026-08-24",
-            "previousNav": 41.3884,
-            "change": -0.2397,
-            "changePercent": -0.5791
+            "navDate": "2026-09-02",
+            "nav": 40.8704,
+            "previousDate": "2026-08-26",
+            "previousNav": 41.3683,
+            "change": -0.4979,
+            "changePercent": -1.2036
           },
           {
-            "navDate": "2026-09-07",
-            "nav": 40.6431,
-            "previousDate": "2026-08-31",
-            "previousNav": 41.1487,
-            "change": -0.5056,
-            "changePercent": -1.2287
+            "navDate": "2026-09-09",
+            "nav": 40.045,
+            "previousDate": "2026-09-02",
+            "previousNav": 40.8704,
+            "change": -0.8254,
+            "changePercent": -2.0196
           },
           {
-            "navDate": "2026-09-11",
-            "nav": 39.9875,
-            "previousDate": "2026-09-07",
-            "previousNav": 40.6431,
-            "change": -0.6556,
-            "changePercent": -1.6131
+            "navDate": "2026-09-16",
+            "nav": 39.6767,
+            "previousDate": "2026-09-09",
+            "previousNav": 40.045,
+            "change": -0.3683,
+            "changePercent": -0.9197
           },
           {
-            "navDate": "2026-09-21",
-            "nav": 40.0104,
-            "previousDate": "2026-09-11",
-            "previousNav": 39.9875,
-            "change": 0.0229,
-            "changePercent": 0.0573
+            "navDate": "2026-09-23",
+            "nav": 40.0649,
+            "previousDate": "2026-09-16",
+            "previousNav": 39.6767,
+            "change": 0.3882,
+            "changePercent": 0.9784
           },
           {
-            "navDate": "2026-09-28",
-            "nav": 38.924,
-            "previousDate": "2026-09-21",
-            "previousNav": 40.0104,
-            "change": -1.0864,
-            "changePercent": -2.7153
+            "navDate": "2026-09-30",
+            "nav": 38.6488,
+            "previousDate": "2026-09-23",
+            "previousNav": 40.0649,
+            "change": -1.4161,
+            "changePercent": -3.5345
           },
           {
-            "navDate": "2026-10-05",
-            "nav": 38.5361,
-            "previousDate": "2026-09-28",
-            "previousNav": 38.924,
-            "change": -0.3879,
-            "changePercent": -0.9966
+            "navDate": "2026-10-07",
+            "nav": 38.6151,
+            "previousDate": "2026-09-30",
+            "previousNav": 38.6488,
+            "change": -0.0337,
+            "changePercent": -0.0872
           },
           {
-            "navDate": "2026-10-12",
-            "nav": 38.2035,
-            "previousDate": "2026-10-05",
-            "previousNav": 38.5361,
-            "change": -0.3326,
-            "changePercent": -0.8631
+            "navDate": "2026-10-14",
+            "nav": 38.6493,
+            "previousDate": "2026-10-07",
+            "previousNav": 38.6151,
+            "change": 0.0342,
+            "changePercent": 0.0886
           },
           {
-            "navDate": "2026-10-19",
-            "nav": 39.1065,
-            "previousDate": "2026-10-12",
-            "previousNav": 38.2035,
-            "change": 0.903,
-            "changePercent": 2.3637
+            "navDate": "2026-10-21",
+            "nav": 38.9731,
+            "previousDate": "2026-10-14",
+            "previousNav": 38.6493,
+            "change": 0.3238,
+            "changePercent": 0.8378
           }
         ]
       }
