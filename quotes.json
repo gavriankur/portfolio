@@ -1,535 +1,115 @@
 {
   "source": "Yahoo Finance · NSE",
   "mode": "snapshot",
-  "collectedAt": "2026-11-03T11:51:47.014153+00:00",
+  "collectedAt": "2026-11-04T12:02:02.512415+00:00",
   "quotes": [
     {
       "symbol": "ZOMIIM",
       "ticker": "ETERNAL.NS",
-      "price": 349.45,
-      "previousClose": 344.0,
+      "price": 344.5,
+      "previousClose": 349.45,
       "low52": 212.6,
       "high52": 350.2,
-      "asOf": "2026-11-03T09:59:45+00:00",
+      "asOf": "2026-11-04T09:59:24+00:00",
       "sourceUrl": "https://finance.yahoo.com/quote/ETERNAL.NS/"
     },
     {
       "symbol": "ADAPOR",
       "ticker": "ADANIPORTS.NS",
-      "price": 1866.9,
-      "previousClose": 1854.0,
+      "price": 1910.0,
+      "previousClose": 1866.9,
       "low52": 1292.0,
-      "high52": 1891.1,
-      "asOf": "2026-11-03T09:59:38+00:00",
+      "high52": 1921.3,
+      "asOf": "2026-11-04T09:59:24+00:00",
       "sourceUrl": "https://finance.yahoo.com/quote/ADANIPORTS.NS/"
     },
     {
       "symbol": "ADAPOW",
       "ticker": "ADANIPOWER.NS",
-      "price": 195.5,
-      "previousClose": 195.35,
+      "price": 201.71,
+      "previousClose": 195.5,
       "low52": 128.1,
       "high52": 254.2,
-      "asOf": "2026-11-03T09:59:45+00:00",
+      "asOf": "2026-11-04T09:59:23+00:00",
       "sourceUrl": "https://finance.yahoo.com/quote/ADANIPOWER.NS/"
     },
     {
       "symbol": "YESBANK",
       "ticker": "YESBANK.NS",
-      "price": 15.38,
-      "previousClose": 15.57,
+      "price": 15.73,
+      "previousClose": 15.38,
       "low52": 15.1,
       "high52": 25.78,
-      "asOf": "2026-11-03T09:59:45+00:00",
+      "asOf": "2026-11-04T09:59:24+00:00",
       "sourceUrl": "https://finance.yahoo.com/quote/YESBANK.NS/"
     },
     {
       "symbol": "JIOFIN",
       "ticker": "JIOFIN.NS",
-      "price": 214.27,
-      "previousClose": 213.25,
+      "price": 222.27,
+      "previousClose": 214.27,
       "low52": 202.51,
       "high52": 316.85,
-      "asOf": "2026-11-03T09:59:45+00:00",
+      "asOf": "2026-11-04T09:59:21+00:00",
       "sourceUrl": "https://finance.yahoo.com/quote/JIOFIN.NS/"
     },
     {
       "symbol": "CIPLA",
       "ticker": "CIPLA.NS",
-      "price": 1396.9,
-      "previousClose": 1387.0,
+      "price": 1402.0,
+      "previousClose": 1396.9,
       "low52": 1165.7,
       "high52": 1539.7,
-      "asOf": "2026-11-03T09:59:39+00:00",
+      "asOf": "2026-11-04T09:59:23+00:00",
       "sourceUrl": "https://finance.yahoo.com/quote/CIPLA.NS/"
     },
     {
       "symbol": "ADAENT",
       "ticker": "ADANIENT.NS",
-      "price": 2593.3,
-      "previousClose": 2615.4,
+      "price": 2709.2,
+      "previousClose": 2593.3,
       "low52": 1753.0,
       "high52": 3245.0,
-      "asOf": "2026-11-03T09:59:39+00:00",
+      "asOf": "2026-11-04T09:59:23+00:00",
       "sourceUrl": "https://finance.yahoo.com/quote/ADANIENT.NS/"
     }
   ],
   "mutualFunds": {
     "source": "AMFI",
-    "checkedAt": "2026-11-03T11:56:31.529770+00:00",
+    "checkedAt": "2026-11-04T12:03:08.465149+00:00",
     "refreshFailed": false,
     "funds": [
       {
         "schemeCode": "103504",
         "name": "SBI Large Cap Fund",
         "plan": "Regular Growth",
-        "nav": 90.1966,
-        "navDate": "2026-11-02",
-        "weeklyHistory": [
-          {
-            "navDate": "2026-08-10",
-            "nav": 95.1488,
-            "previousDate": "2026-08-03",
-            "previousNav": 95.7253,
-            "change": -0.5765,
-            "changePercent": -0.6022
-          },
-          {
-            "navDate": "2026-08-17",
-            "nav": 94.2688,
-            "previousDate": "2026-08-10",
-            "previousNav": 95.1488,
-            "change": -0.88,
-            "changePercent": -0.9249
-          },
-          {
-            "navDate": "2026-08-24",
-            "nav": 93.8866,
-            "previousDate": "2026-08-17",
-            "previousNav": 94.2688,
-            "change": -0.3822,
-            "changePercent": -0.4054
-          },
-          {
-            "navDate": "2026-08-31",
-            "nav": 93.8199,
-            "previousDate": "2026-08-24",
-            "previousNav": 93.8866,
-            "change": -0.0667,
-            "changePercent": -0.071
-          },
-          {
-            "navDate": "2026-09-07",
-            "nav": 92.1471,
-            "previousDate": "2026-08-31",
-            "previousNav": 93.8199,
-            "change": -1.6728,
-            "changePercent": -1.783
-          },
-          {
-            "navDate": "2026-09-11",
-            "nav": 90.8433,
-            "previousDate": "2026-09-07",
-            "previousNav": 92.1471,
-            "change": -1.3038,
-            "changePercent": -1.4149
-          },
-          {
-            "navDate": "2026-09-21",
-            "nav": 91.3389,
-            "previousDate": "2026-09-11",
-            "previousNav": 90.8433,
-            "change": 0.4956,
-            "changePercent": 0.5456
-          },
-          {
-            "navDate": "2026-09-28",
-            "nav": 89.3962,
-            "previousDate": "2026-09-21",
-            "previousNav": 91.3389,
-            "change": -1.9427,
-            "changePercent": -2.1269
-          },
-          {
-            "navDate": "2026-10-05",
-            "nav": 88.5681,
-            "previousDate": "2026-09-28",
-            "previousNav": 89.3962,
-            "change": -0.8281,
-            "changePercent": -0.9263
-          },
-          {
-            "navDate": "2026-10-12",
-            "nav": 87.948,
-            "previousDate": "2026-10-05",
-            "previousNav": 88.5681,
-            "change": -0.6201,
-            "changePercent": -0.7001
-          },
-          {
-            "navDate": "2026-10-19",
-            "nav": 88.8211,
-            "previousDate": "2026-10-12",
-            "previousNav": 87.948,
-            "change": 0.8731,
-            "changePercent": 0.9927
-          },
-          {
-            "navDate": "2026-10-26",
-            "nav": 87.5603,
-            "previousDate": "2026-10-19",
-            "previousNav": 88.8211,
-            "change": -1.2608,
-            "changePercent": -1.4195
-          },
-          {
-            "navDate": "2026-11-02",
-            "nav": 90.1966,
-            "previousDate": "2026-10-26",
-            "previousNav": 87.5603,
-            "change": 2.6363,
-            "changePercent": 3.0108
-          }
-        ]
+        "nav": 91.4091,
+        "navDate": "2026-11-03",
+        "historyError": "Historical NAV refresh failed"
       },
       {
         "schemeCode": "113177",
         "name": "Nippon India Small Cap Fund",
         "plan": "Regular Growth",
-        "nav": 172.8203,
-        "navDate": "2026-11-02",
-        "weeklyHistory": [
-          {
-            "navDate": "2026-08-10",
-            "nav": 184.2328,
-            "previousDate": "2026-08-03",
-            "previousNav": 182.2961,
-            "change": 1.9367,
-            "changePercent": 1.0624
-          },
-          {
-            "navDate": "2026-08-17",
-            "nav": 185.8773,
-            "previousDate": "2026-08-10",
-            "previousNav": 184.2328,
-            "change": 1.6445,
-            "changePercent": 0.8926
-          },
-          {
-            "navDate": "2026-08-24",
-            "nav": 185.8428,
-            "previousDate": "2026-08-17",
-            "previousNav": 185.8773,
-            "change": -0.0345,
-            "changePercent": -0.0186
-          },
-          {
-            "navDate": "2026-08-31",
-            "nav": 186.4546,
-            "previousDate": "2026-08-24",
-            "previousNav": 185.8428,
-            "change": 0.6118,
-            "changePercent": 0.3292
-          },
-          {
-            "navDate": "2026-09-07",
-            "nav": 186.038,
-            "previousDate": "2026-08-31",
-            "previousNav": 186.4546,
-            "change": -0.4166,
-            "changePercent": -0.2234
-          },
-          {
-            "navDate": "2026-09-11",
-            "nav": 185.3841,
-            "previousDate": "2026-09-07",
-            "previousNav": 186.038,
-            "change": -0.6539,
-            "changePercent": -0.3515
-          },
-          {
-            "navDate": "2026-09-21",
-            "nav": 185.365,
-            "previousDate": "2026-09-11",
-            "previousNav": 185.3841,
-            "change": -0.0191,
-            "changePercent": -0.0103
-          },
-          {
-            "navDate": "2026-09-28",
-            "nav": 181.12,
-            "previousDate": "2026-09-21",
-            "previousNav": 185.365,
-            "change": -4.245,
-            "changePercent": -2.2901
-          },
-          {
-            "navDate": "2026-10-05",
-            "nav": 179.4543,
-            "previousDate": "2026-09-28",
-            "previousNav": 181.12,
-            "change": -1.6657,
-            "changePercent": -0.9197
-          },
-          {
-            "navDate": "2026-10-12",
-            "nav": 179.9526,
-            "previousDate": "2026-10-05",
-            "previousNav": 179.4543,
-            "change": 0.4983,
-            "changePercent": 0.2777
-          },
-          {
-            "navDate": "2026-10-19",
-            "nav": 176.8667,
-            "previousDate": "2026-10-12",
-            "previousNav": 179.9526,
-            "change": -3.0859,
-            "changePercent": -1.7148
-          },
-          {
-            "navDate": "2026-10-26",
-            "nav": 168.855,
-            "previousDate": "2026-10-19",
-            "previousNav": 176.8667,
-            "change": -8.0117,
-            "changePercent": -4.5298
-          },
-          {
-            "navDate": "2026-11-02",
-            "nav": 172.8203,
-            "previousDate": "2026-10-26",
-            "previousNav": 168.855,
-            "change": 3.9653,
-            "changePercent": 2.3483
-          }
-        ]
+        "nav": 173.7596,
+        "navDate": "2026-11-03",
+        "historyError": "Historical NAV refresh failed"
       },
       {
         "schemeCode": "104683",
         "name": "ICICI Prudential Arbitrage Fund",
         "plan": "Regular Growth",
-        "nav": 37.1022,
-        "navDate": "2026-11-02",
-        "weeklyHistory": [
-          {
-            "navDate": "2026-08-10",
-            "nav": 36.6166,
-            "previousDate": "2026-08-03",
-            "previousNav": 36.7098,
-            "change": -0.0932,
-            "changePercent": -0.2539
-          },
-          {
-            "navDate": "2026-08-17",
-            "nav": 36.5843,
-            "previousDate": "2026-08-10",
-            "previousNav": 36.6166,
-            "change": -0.0323,
-            "changePercent": -0.0882
-          },
-          {
-            "navDate": "2026-08-24",
-            "nav": 36.7108,
-            "previousDate": "2026-08-17",
-            "previousNav": 36.5843,
-            "change": 0.1265,
-            "changePercent": 0.3458
-          },
-          {
-            "navDate": "2026-08-31",
-            "nav": 36.67,
-            "previousDate": "2026-08-24",
-            "previousNav": 36.7108,
-            "change": -0.0408,
-            "changePercent": -0.1111
-          },
-          {
-            "navDate": "2026-09-07",
-            "nav": 36.7584,
-            "previousDate": "2026-08-31",
-            "previousNav": 36.67,
-            "change": 0.0884,
-            "changePercent": 0.2411
-          },
-          {
-            "navDate": "2026-09-11",
-            "nav": 36.7477,
-            "previousDate": "2026-09-07",
-            "previousNav": 36.7584,
-            "change": -0.0107,
-            "changePercent": -0.0291
-          },
-          {
-            "navDate": "2026-09-21",
-            "nav": 36.8026,
-            "previousDate": "2026-09-11",
-            "previousNav": 36.7477,
-            "change": 0.0549,
-            "changePercent": 0.1494
-          },
-          {
-            "navDate": "2026-09-28",
-            "nav": 36.8602,
-            "previousDate": "2026-09-21",
-            "previousNav": 36.8026,
-            "change": 0.0576,
-            "changePercent": 0.1565
-          },
-          {
-            "navDate": "2026-10-05",
-            "nav": 36.9183,
-            "previousDate": "2026-09-28",
-            "previousNav": 36.8602,
-            "change": 0.0581,
-            "changePercent": 0.1576
-          },
-          {
-            "navDate": "2026-10-12",
-            "nav": 36.9788,
-            "previousDate": "2026-10-05",
-            "previousNav": 36.9183,
-            "change": 0.0605,
-            "changePercent": 0.1639
-          },
-          {
-            "navDate": "2026-10-19",
-            "nav": 36.9791,
-            "previousDate": "2026-10-12",
-            "previousNav": 36.9788,
-            "change": 0.0003,
-            "changePercent": 0.0008
-          },
-          {
-            "navDate": "2026-10-26",
-            "nav": 37.0081,
-            "previousDate": "2026-10-19",
-            "previousNav": 36.9791,
-            "change": 0.029,
-            "changePercent": 0.0784
-          },
-          {
-            "navDate": "2026-11-02",
-            "nav": 37.1022,
-            "previousDate": "2026-10-26",
-            "previousNav": 37.0081,
-            "change": 0.0941,
-            "changePercent": 0.2543
-          }
-        ]
+        "nav": 37.1114,
+        "navDate": "2026-11-03",
+        "historyError": "Historical NAV refresh failed"
       },
       {
         "schemeCode": "113296",
         "name": "Nippon India Index Fund - Nifty 50 Plan",
         "plan": "Regular Growth",
-        "nav": 40.0498,
-        "navDate": "2026-11-02",
-        "weeklyHistory": [
-          {
-            "navDate": "2026-08-10",
-            "nav": 42.0133,
-            "previousDate": "2026-08-03",
-            "previousNav": 42.3315,
-            "change": -0.3182,
-            "changePercent": -0.7517
-          },
-          {
-            "navDate": "2026-08-17",
-            "nav": 41.5083,
-            "previousDate": "2026-08-10",
-            "previousNav": 42.0133,
-            "change": -0.505,
-            "changePercent": -1.202
-          },
-          {
-            "navDate": "2026-08-24",
-            "nav": 41.3884,
-            "previousDate": "2026-08-17",
-            "previousNav": 41.5083,
-            "change": -0.1199,
-            "changePercent": -0.2889
-          },
-          {
-            "navDate": "2026-08-31",
-            "nav": 41.1487,
-            "previousDate": "2026-08-24",
-            "previousNav": 41.3884,
-            "change": -0.2397,
-            "changePercent": -0.5791
-          },
-          {
-            "navDate": "2026-09-07",
-            "nav": 40.6431,
-            "previousDate": "2026-08-31",
-            "previousNav": 41.1487,
-            "change": -0.5056,
-            "changePercent": -1.2287
-          },
-          {
-            "navDate": "2026-09-11",
-            "nav": 39.9875,
-            "previousDate": "2026-09-07",
-            "previousNav": 40.6431,
-            "change": -0.6556,
-            "changePercent": -1.6131
-          },
-          {
-            "navDate": "2026-09-21",
-            "nav": 40.0104,
-            "previousDate": "2026-09-11",
-            "previousNav": 39.9875,
-            "change": 0.0229,
-            "changePercent": 0.0573
-          },
-          {
-            "navDate": "2026-09-28",
-            "nav": 38.924,
-            "previousDate": "2026-09-21",
-            "previousNav": 40.0104,
-            "change": -1.0864,
-            "changePercent": -2.7153
-          },
-          {
-            "navDate": "2026-10-05",
-            "nav": 38.5361,
-            "previousDate": "2026-09-28",
-            "previousNav": 38.924,
-            "change": -0.3879,
-            "changePercent": -0.9966
-          },
-          {
-            "navDate": "2026-10-12",
-            "nav": 38.2035,
-            "previousDate": "2026-10-05",
-            "previousNav": 38.5361,
-            "change": -0.3326,
-            "changePercent": -0.8631
-          },
-          {
-            "navDate": "2026-10-19",
-            "nav": 39.1065,
-            "previousDate": "2026-10-12",
-            "previousNav": 38.2035,
-            "change": 0.903,
-            "changePercent": 2.3637
-          },
-          {
-            "navDate": "2026-10-26",
-            "nav": 38.8749,
-            "previousDate": "2026-10-19",
-            "previousNav": 39.1065,
-            "change": -0.2316,
-            "changePercent": -0.5922
-          },
-          {
-            "navDate": "2026-11-02",
-            "nav": 40.0498,
-            "previousDate": "2026-10-26",
-            "previousNav": 38.8749,
-            "change": 1.1749,
-            "changePercent": 3.0223
-          }
-        ]
+        "nav": 40.6811,
+        "navDate": "2026-11-03",
+        "historyError": "Historical NAV refresh failed"
       }
     ]
   }
