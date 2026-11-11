@@ -1,82 +1,82 @@
 {
   "source": "Yahoo Finance · NSE",
   "mode": "snapshot",
-  "collectedAt": "2026-11-10T12:32:08.433761+00:00",
+  "collectedAt": "2026-11-11T11:49:02.918156+00:00",
   "quotes": [
     {
       "symbol": "ZOMIIM",
       "ticker": "ETERNAL.NS",
-      "price": 363.45,
-      "previousClose": 364.4,
+      "price": 361.1,
+      "previousClose": 363.45,
       "low52": 212.6,
-      "high52": 366.0,
-      "asOf": "2026-11-09T09:58:26+00:00",
+      "high52": 372.1,
+      "asOf": "2026-11-11T09:59:55+00:00",
       "sourceUrl": "https://finance.yahoo.com/quote/ETERNAL.NS/"
     },
     {
       "symbol": "ADAPOR",
       "ticker": "ADANIPORTS.NS",
-      "price": 1942.7,
-      "previousClose": 1949.3,
+      "price": 1907.0,
+      "previousClose": 1942.7,
       "low52": 1292.0,
-      "high52": 1962.0,
-      "asOf": "2026-11-09T09:58:27+00:00",
+      "high52": 1979.0,
+      "asOf": "2026-11-11T09:59:54+00:00",
       "sourceUrl": "https://finance.yahoo.com/quote/ADANIPORTS.NS/"
     },
     {
       "symbol": "ADAPOW",
       "ticker": "ADANIPOWER.NS",
-      "price": 206.0,
-      "previousClose": 204.4,
+      "price": 208.0,
+      "previousClose": 206.0,
       "low52": 128.1,
       "high52": 254.2,
-      "asOf": "2026-11-09T09:58:26+00:00",
+      "asOf": "2026-11-11T09:59:56+00:00",
       "sourceUrl": "https://finance.yahoo.com/quote/ADANIPOWER.NS/"
     },
     {
       "symbol": "YESBANK",
       "ticker": "YESBANK.NS",
-      "price": 17.03,
-      "previousClose": 17.3,
+      "price": 17.24,
+      "previousClose": 17.03,
       "low52": 15.1,
       "high52": 25.78,
-      "asOf": "2026-11-09T09:58:28+00:00",
+      "asOf": "2026-11-11T09:59:55+00:00",
       "sourceUrl": "https://finance.yahoo.com/quote/YESBANK.NS/"
     },
     {
       "symbol": "JIOFIN",
       "ticker": "JIOFIN.NS",
-      "price": 230.0,
+      "price": 230.6,
       "previousClose": 230.0,
       "low52": 202.51,
       "high52": 316.85,
-      "asOf": "2026-11-09T09:58:26+00:00",
+      "asOf": "2026-11-11T09:59:58+00:00",
       "sourceUrl": "https://finance.yahoo.com/quote/JIOFIN.NS/"
     },
     {
       "symbol": "CIPLA",
       "ticker": "CIPLA.NS",
-      "price": 1403.8,
-      "previousClose": 1405.8,
+      "price": 1419.9,
+      "previousClose": 1403.8,
       "low52": 1165.7,
       "high52": 1539.7,
-      "asOf": "2026-11-09T09:58:26+00:00",
+      "asOf": "2026-11-11T09:59:54+00:00",
       "sourceUrl": "https://finance.yahoo.com/quote/CIPLA.NS/"
     },
     {
       "symbol": "ADAENT",
       "ticker": "ADANIENT.NS",
-      "price": 2706.3,
-      "previousClose": 2731.0,
+      "price": 2714.5,
+      "previousClose": 2706.3,
       "low52": 1753.0,
       "high52": 3245.0,
-      "asOf": "2026-11-09T09:58:26+00:00",
+      "asOf": "2026-11-11T09:59:54+00:00",
       "sourceUrl": "https://finance.yahoo.com/quote/ADANIENT.NS/"
     }
   ],
   "mutualFunds": {
     "source": "AMFI",
-    "checkedAt": "2026-11-10T12:37:18.918289+00:00",
+    "checkedAt": "2026-11-11T11:49:09.727827+00:00",
     "refreshFailed": false,
     "funds": [
       {
