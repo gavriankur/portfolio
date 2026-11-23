@@ -1,114 +1,114 @@
 {
   "source": "Yahoo Finance · NSE",
   "mode": "snapshot",
-  "collectedAt": "2026-11-20T12:46:46.532382+00:00",
+  "collectedAt": "2026-11-23T14:29:22.036110+00:00",
   "quotes": [
     {
       "symbol": "ZOMIIM",
       "ticker": "ETERNAL.NS",
-      "price": 364.0,
-      "previousClose": 366.85,
+      "price": 362.1,
+      "previousClose": 364.0,
       "low52": 212.6,
       "high52": 378.0,
-      "asOf": "2026-11-20T09:58:10+00:00",
+      "asOf": "2026-11-23T09:59:34+00:00",
       "sourceUrl": "https://finance.yahoo.com/quote/ETERNAL.NS/"
     },
     {
       "symbol": "ADAPOR",
       "ticker": "ADANIPORTS.NS",
-      "price": 1917.0,
-      "previousClose": 1917.1,
+      "price": 1919.0,
+      "previousClose": 1917.0,
       "low52": 1292.0,
       "high52": 1979.0,
-      "asOf": "2026-11-20T09:58:04+00:00",
+      "asOf": "2026-11-23T09:59:41+00:00",
       "sourceUrl": "https://finance.yahoo.com/quote/ADANIPORTS.NS/"
     },
     {
       "symbol": "ADAPOW",
       "ticker": "ADANIPOWER.NS",
-      "price": 211.95,
-      "previousClose": 210.5,
+      "price": 207.9,
+      "previousClose": 211.95,
       "low52": 128.1,
       "high52": 254.2,
-      "asOf": "2026-11-20T09:58:04+00:00",
+      "asOf": "2026-11-23T09:59:41+00:00",
       "sourceUrl": "https://finance.yahoo.com/quote/ADANIPOWER.NS/"
     },
     {
       "symbol": "YESBANK",
       "ticker": "YESBANK.NS",
-      "price": 17.91,
-      "previousClose": 17.84,
+      "price": 17.73,
+      "previousClose": 17.91,
       "low52": 15.1,
       "high52": 25.78,
-      "asOf": "2026-11-20T09:58:10+00:00",
+      "asOf": "2026-11-23T09:59:40+00:00",
       "sourceUrl": "https://finance.yahoo.com/quote/YESBANK.NS/"
     },
     {
       "symbol": "JIOFIN",
       "ticker": "JIOFIN.NS",
-      "price": 224.97,
-      "previousClose": 226.8,
+      "price": 219.7,
+      "previousClose": 224.97,
       "low52": 202.51,
       "high52": 309.8,
-      "asOf": "2026-11-20T09:58:10+00:00",
+      "asOf": "2026-11-23T09:59:40+00:00",
       "sourceUrl": "https://finance.yahoo.com/quote/JIOFIN.NS/"
     },
     {
       "symbol": "CIPLA",
       "ticker": "CIPLA.NS",
-      "price": 1415.0,
-      "previousClose": 1418.5,
+      "price": 1399.9,
+      "previousClose": 1415.0,
       "low52": 1165.7,
       "high52": 1539.7,
-      "asOf": "2026-11-20T09:58:05+00:00",
+      "asOf": "2026-11-23T09:59:40+00:00",
       "sourceUrl": "https://finance.yahoo.com/quote/CIPLA.NS/"
     },
     {
       "symbol": "ADAENT",
       "ticker": "ADANIENT.NS",
-      "price": 2709.0,
-      "previousClose": 2703.1,
+      "price": 2677.9,
+      "previousClose": 2709.0,
       "low52": 1753.0,
       "high52": 3245.0,
-      "asOf": "2026-11-20T09:58:05+00:00",
+      "asOf": "2026-11-23T09:59:41+00:00",
       "sourceUrl": "https://finance.yahoo.com/quote/ADANIENT.NS/"
     }
   ],
   "mutualFunds": {
     "source": "AMFI",
-    "checkedAt": "2026-11-20T12:50:57.933689+00:00",
+    "checkedAt": "2026-11-23T14:31:44.080392+00:00",
     "refreshFailed": false,
     "funds": [
       {
         "schemeCode": "103504",
         "name": "SBI Large Cap Fund",
         "plan": "Regular Growth",
-        "nav": 97.104,
-        "navDate": "2026-11-19",
+        "nav": 98.1334,
+        "navDate": "2026-11-20",
         "historyError": "Historical NAV refresh failed"
       },
       {
         "schemeCode": "113177",
         "name": "Nippon India Small Cap Fund",
         "plan": "Regular Growth",
-        "nav": 179.7167,
-        "navDate": "2026-11-19",
+        "nav": 179.8094,
+        "navDate": "2026-11-20",
         "historyError": "Historical NAV refresh failed"
       },
       {
         "schemeCode": "104683",
         "name": "ICICI Prudential Arbitrage Fund",
         "plan": "Regular Growth",
-        "nav": 37.1539,
-        "navDate": "2026-11-19",
+        "nav": 37.201,
+        "navDate": "2026-11-20",
         "historyError": "Historical NAV refresh failed"
       },
       {
         "schemeCode": "113296",
         "name": "Nippon India Index Fund - Nifty 50 Plan",
         "plan": "Regular Growth",
-        "nav": 43.5975,
-        "navDate": "2026-11-19",
+        "nav": 44.0859,
+        "navDate": "2026-11-20",
         "historyError": "Historical NAV refresh failed"
       }
     ]
